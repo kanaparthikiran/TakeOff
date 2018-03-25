@@ -1,0 +1,29 @@
+I made the following Assumptions, while creating the Solution
+ 
+
+1) WPC provides 3 separate API calls for that provide Usage Data for
+   Calls,Data, and TextMessages.
+   So that Customer Can select and Choose Each of the Sections Usage/Billing.
+   
+   In House Tax Calculator(WPCTaxCalculator.java) is used for Tax Calculation.
+   
+   
+2) I am using Spring Framework for the Web Application.
+   Transaction Control is provided as part of the Framework, which I used.
+   Cache Service is provided by EHCache Framework, which I used. 
+      
+3) Merchat Bank provides A SOA Web Service and WSDL, which will be integrated 
+   with the WPC Application.
+
+4) Used Decorator Design Pattern for the Calculation of  Data for
+   Calls,Data, and TextMessages Usage.
+
+5) Used Front Controller, Intercepting Filter for 
+	- User Authentication. - WPCLoginController
+	- For Credit Card Validation. - WPCCreditCardCaontroller, it validates the Input 
+      and checks the Credit Card Expiry Date, and Valid Number of Digits based on each type
+      of card, Before making the Request to Merchant Bank/Payment Gateway.
+      
+       
+
+ 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Risk List</title>
+</head>
+<body>
+This File Contains Risk List.
+
+Risk#1
+
+The Merchant Bank Web Service could go down, or could be under load, and may not 
+respond within the TimeOut then TimeOut Exception may occur.
+
+Mitigation Plan#
+I will let the Web Service Client to check the Web Service Status for a retry count of 3 times, 
+if they fall under 3 seconds SLA, this way We can reduce the timeout use cases.
+
+In case the Merchant Bank's Web Service does not respond even after 3 seconds, Will show an Information
+message to the Customer saying 
+"Contact Customer Service Phone Number" or "Retry the Payment at a later time, as there is an error in Payment Processing"
+
+
+Risk#2
+
+Security is of Paramount importance to the WPC Application, As the Credit Card Processing is done at WPC.
+There could be a chance of PCI Compliance issues, So I will make sure that all PCI compliance issues are 
+prevented before hand. Also will take care of the all Open Web Application Security Project Vulnerabilities
+like 
+
+SQL Injection - By Validating, and Sanitizing the User Input, and Response Output. So that they do not contain
+any invalid characters, that lets an attacker take control of the Web Site.
+
+Encryption - The Transportation is Secured between Client, and Server using SSL/HTTPS, so that any attacker like
+Eavesdropper,ManIntheMiddle attacks are mitigated.
+
+
+Risk#3
+
+WPC Web Site could get too much Load and the System may not be able to address the SLA.
+We mitigate this chance by adding Load Balancer at the Web Server.
+Creating Load Balancers at Application Server Layer, and Creating Clustering of the Application Servers.
+
+
+WPC Web Site Could be a target Denial of Service(DOS) attacks.
+I prevent this by using Switches for Traffic, and White listing of the IP Addresses.
+
+
+Risk#4
+ 
+Non Functional Requirements List
+-
+SLA of 3 seconds.
+Scalability of Thousand % for the first year.
+Availability of 99.99% during Core Working hours.
+Security (128- bit encryption)
+
+
+
+
+ 
+
+</body>
+</html>
