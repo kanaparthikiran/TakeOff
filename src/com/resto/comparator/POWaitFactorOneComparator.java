@@ -16,10 +16,4 @@ public class POWaitFactorOneComparator implements Comparator<Edge> {
         return emp1.getStartNode().getPoWaitFactor1()-emp2.getStartNode().getPoWaitFactor1();
     }
 
-	/**
-	 * 
-	 */
-	public POWaitFactorOneComparator() {
-	}
-
 }

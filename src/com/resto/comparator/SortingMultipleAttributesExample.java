@@ -129,7 +129,8 @@ public class SortingMultipleAttributesExample {
         System.out.println("\n*** After sorting:");
  
         for (Edge emp : listEdges) {
-            System.out.println("Node Type  " + emp.getStartNode().getNodeType()+"  Stocking Level "+emp.getStartNode().getStockingLevel()
+            System.out.println("Node Type  " + emp.getStartNode().getNodeType()+"  Stocking Level "
+            		+emp.getStartNode().getStockingLevel()
             		+"  Warehouse Priority "+emp.getStartNode().getWarehousePriority()+" Wait Factor1 "
             		+emp.getStartNode().getPoWaitFactor1()+"  Wait Factor2 "+emp.getStartNode().getPoWaitFactor2());
         }
