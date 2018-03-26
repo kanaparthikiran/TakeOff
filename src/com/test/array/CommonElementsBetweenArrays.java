@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.test.arrays;
+package com.test.array;
 
 /**
  * @author kkanaparthi
