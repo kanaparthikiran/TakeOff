@@ -12,14 +12,9 @@ import java.util.Map;
  */
 public class FindHighestIndexOfOccurances {
 
-	/**
-	 * 
-	 */
-	public FindHighestIndexOfOccurances() {
-	}
 
 	public static void main(String a[]) {
-		int x =5,y=10;
+		int x =5,y=14;
 		int array[] = new int[]{1,5,5,10,10,7,5,10,6,9,14,5,10,7,9,4};
 		int matchingIndex = -1;
 		int length = array.length;
@@ -40,7 +35,8 @@ public class FindHighestIndexOfOccurances {
 			System.out.println("x and y are repeated for the"
 					+ " same count of times "+xCount+" matchingIndex "+matchingIndex);
 		} else {
-			System.out.println("X and Y counts are NOT equal");
+			System.out.println("X and Y counts are NOT equal"
+					+ " xCount "+xCount+" yCount "+yCount);
 		}
 	}
 }
