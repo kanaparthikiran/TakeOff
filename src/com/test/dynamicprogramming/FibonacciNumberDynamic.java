@@ -5,6 +5,7 @@ package com.test.dynamicprogramming;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +36,20 @@ public class FibonacciNumberDynamic {
 	}
 	
 	
+	
+	private void fiboIterative(int n) {
+		int a=0,b=1;
+		
+		System.out.print(" "+a+" "+b);
+		
+		for(int i=2;i<n;i++) {
+			int c  = a+b;
+			a = b;
+			b = c;
+			System.out.print(" "+c);
+		}
+		
+	}
 	/**
 	 * 
 	 * @param n
@@ -111,7 +126,12 @@ public class FibonacciNumberDynamic {
 		
 		int n = 50;
 		
+		fibonacciNumberDynamic.fiboIterative(10);
+		
+		System.out.println("\n Printed Fibo numbers ");
+		
 		fibonacciNumberDynamic.printFibonacciIterative(n);
+		
 		long startTime = System.currentTimeMillis();
 		
 		System.out.println("\n Started Fibonacci Recursive Method ");
@@ -132,6 +152,8 @@ public class FibonacciNumberDynamic {
 					printFiboRecursionDynamic(i,mapValues));
 		}
 		
+		ArrayList al = new ArrayList<>();
+
 		long endTimeDynamic = System.currentTimeMillis();
 
 		System.out.println("\n\n Total time taken for the process "

@@ -34,10 +34,16 @@ public class ReverseArrayInPlace {
 	public static void main(String[] args) {
 		ReverseArrayInPlace reverseArrayInPlace = new ReverseArrayInPlace();
 		int[] input = new int[]{1,2,4,5,6,7,8,3,9};
+		int [] clonedArray = input.clone();
+
 		int[] reverseArray = reverseArrayInPlace.reverseArray(input);
-		
+
 		if(reverseArray!=null && reverseArray.length>0) {
 			System.out.println(Arrays.toString(input));
+		}
+		
+		if(clonedArray!=null && clonedArray.length>0) {
+			System.out.println(Arrays.toString(clonedArray));
 		}
 	}
 	

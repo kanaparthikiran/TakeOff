@@ -64,9 +64,7 @@ public class TopTwoNumbersInArray {
 		TopTwoNumbersInArray topTwoNumbersInArray = 
 				new TopTwoNumbersInArray();
 		int[] input = new int[]{4,6,9,19,16,15,18,5,6,1,3,-8,-9,10000};
-		
 		int[] result = topTwoNumbersInArray.twoMaxNumbers(input);
-		
 		System.out.println(" The max Two elements from the Array are ");
 		if(result!=null && result.length>0) {
 			System.out.println(Arrays.toString(result));
