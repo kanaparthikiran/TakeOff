@@ -4,6 +4,7 @@
 package com.test.core.sorting;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * @author kkanaparthi
@@ -32,6 +33,14 @@ public class QuickSort {
 		return input;
 	}
 	
+	  void swap(int arr[],int i,int j)
+	    {
+	        int t = arr[i];
+	        arr[i] = arr[j];
+	        arr[j] = t;
+	    }
+	  
+	
 	/**
 	 * 
 	 * @param input
@@ -49,7 +58,7 @@ public class QuickSort {
 				right++;
 			}
 			if(left<=right) {
-				swap(input,left,right) {
+				swap(input,left,right);
 					left++;
 					right--;
 				}
@@ -68,7 +77,7 @@ public class QuickSort {
 		
 		int[] response = quickSort.quickSort(input,0,input.length);
 		
-		
+		Collections.sort(list);
 		Arrays.toString(response);
 	}
 
