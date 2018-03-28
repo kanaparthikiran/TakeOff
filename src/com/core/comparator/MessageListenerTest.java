@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy;
 
-import com.core.comparator.threadpool.WorkerThread;
+import com.core.threadpool.WorkerThread;
 
 import java.util.concurrent.TimeUnit;
 
