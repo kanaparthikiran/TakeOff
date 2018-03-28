@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.design.patterns.strategy;
+package com.gof.design.patterns.strategy;
 
 /**
  * @author kkanaparthi
@@ -19,7 +19,7 @@ public class UPSDeliveryDateRange extends AbstractDeliveryDateRange
 	}
 
 	/* (non-Javadoc)
-	 * @see com.design.patterns.strategy.IDeliveryDateRange#getDeliveryDateRange()
+	 * @see com.gof.design.patterns.strategy.IDeliveryDateRange#getDeliveryDateRange()
 	 */
 	@Override
 	public String getDeliveryDateRange() {
@@ -27,7 +27,7 @@ public class UPSDeliveryDateRange extends AbstractDeliveryDateRange
 	}
 
 	/* (non-Javadoc)
-	 * @see com.design.patterns.strategy.IDeliveryDateRange#getDeliveryType()
+	 * @see com.gof.design.patterns.strategy.IDeliveryDateRange#getDeliveryType()
 	 */
 	@Override
 	public String getDeliveryType() {

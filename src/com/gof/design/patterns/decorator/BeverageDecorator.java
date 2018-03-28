@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.design.patterns.decorator;
+package com.gof.design.patterns.decorator;
 
 /**
  * @author kkanaparthi
@@ -19,7 +19,7 @@ public abstract class BeverageDecorator implements Beverage {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.design.patterns.decorator.Beverage#getCost()
+	 * @see com.gof.design.patterns.decorator.Beverage#getCost()
 	 */
 	@Override
 	public double getCost() {
@@ -28,7 +28,7 @@ public abstract class BeverageDecorator implements Beverage {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.design.patterns.decorator.Beverage#getDescription()
+	 * @see com.gof.design.patterns.decorator.Beverage#getDescription()
 	 */
 	@Override
 	public String getDescription() {

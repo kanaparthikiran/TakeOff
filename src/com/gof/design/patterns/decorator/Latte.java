@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.design.patterns.decorator;
+package com.gof.design.patterns.decorator;
 
 /**
  * @author kkanaparthi
@@ -18,7 +18,7 @@ public class Latte extends BeverageDecorator {
 
 	
 	/* (non-Javadoc)
-	 * @see com.design.patterns.decorator.Beverage#getCost()
+	 * @see com.gof.design.patterns.decorator.Beverage#getCost()
 	 */
 	@Override
 	public double getCost() {
@@ -27,7 +27,7 @@ public class Latte extends BeverageDecorator {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.design.patterns.decorator.Beverage#getDescription()
+	 * @see com.gof.design.patterns.decorator.Beverage#getDescription()
 	 */
 	@Override
 	public String getDescription() {

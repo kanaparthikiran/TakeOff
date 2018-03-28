@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.design.patterns.strategy;
+package com.gof.design.patterns.strategy;
 
 /**
  * @author kkanaparthi
@@ -18,7 +18,7 @@ public class HDLDeliveryDateManager  extends AbstractDeliveryDateManager
 	}
 
 	/* (non-Javadoc)
-	 * @see com.design.patterns.strategy.IDeliveryDateManager#getMiracleDate()
+	 * @see com.gof.design.patterns.strategy.IDeliveryDateManager#getMiracleDate()
 	 */
 	@Override
 	public String getMiracleDate() {
@@ -26,7 +26,7 @@ public class HDLDeliveryDateManager  extends AbstractDeliveryDateManager
 	}
 
 	/* (non-Javadoc)
-	 * @see com.design.patterns.strategy.IDeliveryDateManager#getOffset()
+	 * @see com.gof.design.patterns.strategy.IDeliveryDateManager#getOffset()
 	 */
 	@Override
 	public int getOffset() {

@@ -1,4 +1,4 @@
-package com.design.patterns.strategy;
+package com.gof.design.patterns.strategy;
 
 public class AbstractDeliveryDateRange implements IDeliveryDateRange {
 	

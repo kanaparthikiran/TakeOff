@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.design.patterns.decorator;
+package com.gof.design.patterns.decorator;
 
 import java.util.Scanner;
 

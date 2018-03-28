@@ -5,4 +5,4 @@
  * @author kkanaparthi
  *
  */
-package com.design.patterns.visitor;
+package com.gof.design.patterns.visitor;

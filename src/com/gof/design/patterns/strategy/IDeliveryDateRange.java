@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.design.patterns.strategy;
+package com.gof.design.patterns.strategy;
 
 /**
  * @author kkanaparthi

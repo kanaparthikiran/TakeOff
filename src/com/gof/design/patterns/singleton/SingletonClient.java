@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.design.patterns.singleton;
+package com.gof.design.patterns.singleton;
 
 import java.util.Queue;
 
