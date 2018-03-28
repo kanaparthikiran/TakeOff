@@ -56,7 +56,7 @@ public class FindMissingNumberInArray {
 			}
 		}
 		
-		for(int i=0;i<=n;i++) {
+		for(int i=1;i<=n;i++) {
 			firstNNumbersXOR ^=i;
 		}
 		result = arrayElemsXOR^firstNNumbersXOR;
@@ -69,7 +69,7 @@ public class FindMissingNumberInArray {
 	 */
 	public static void main(String[] args) {
 		FindMissingNumberInArray findMissingNumberInArray = new FindMissingNumberInArray();
-		int input[] = new int[]{1,2,4,5,6,7,8,9,10};
+		int input[] = new int[]{1,2,4,6,7,8,9,10};
 		int n = 10; 
 		int missingNumberFormula = findMissingNumberInArray.missingNumberFormula(input,n);
 		System.out.println(" Missing Number Using Formula is "+ missingNumberFormula);
