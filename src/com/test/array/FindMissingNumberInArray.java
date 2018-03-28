@@ -27,7 +27,6 @@ public class FindMissingNumberInArray {
 	 * @return
 	 */
 	private int missingNumberFormula(int array[],int n) {
-		int result = 0;
 		int sumOfNNumbers = n*(n+1)/2;
 		if(array!=null && array.length>0) {
 			for(int elem : array) {

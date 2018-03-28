@@ -34,6 +34,9 @@ public class PrimeNumbers {
 				if(isPrime)
 					System.out.print(i + " ");
 			}
+			
+			primeNumbers.printPrimeNumbers();
+			
 	}
 	
 	/**

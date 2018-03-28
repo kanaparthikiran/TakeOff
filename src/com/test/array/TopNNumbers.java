@@ -3,8 +3,6 @@
  */
 package com.test.array;
 
-import java.util.Scanner;
-
 /**
  * @author kkanaparthi
  *
@@ -22,14 +20,14 @@ public class TopNNumbers {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-//	TopNNumbers topNNumbers = new TopNNumbers();
-//	
-//	int result[] = topNNumbers.topNNumbers(new int[]{3,5,1,7,2});
-//	
-//	for(int resultElem : result) {
-//		System.out.println(" resultElem "+resultElem);
-//	}
-//	
+	TopNNumbers topNNumbers = new TopNNumbers();
+	
+	int result[] = topNNumbers.topNNumbers(new int[]{3,5,1,7,2});
+	
+	for(int resultElem : result) {
+		System.out.println(" resultElem "+resultElem);
+	}
+	
 		
 		  /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
 //	       Scanner sc=new Scanner(System.in);  
