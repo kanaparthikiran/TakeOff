@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.datastructures.dynamicprogramming;
+package com.alogorithms.dynamicprogramming;
 
 import java.math.BigInteger;
 

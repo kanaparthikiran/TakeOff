@@ -5,4 +5,4 @@
  * @author kkanaparthi
  *
  */
-package com.datastructures.dynamicprogramming;
+package com.alogorithms.dynamicprogramming;
