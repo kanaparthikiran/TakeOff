@@ -9,11 +9,7 @@ package com.datastructures.array;
  */
 public class CommonElementsBetweenArrays {
 
-	/**
-	 * 
-	 */
-	public CommonElementsBetweenArrays() {
-	}
+
 
 	
 	private void printCommonElements(int[] a,int[]b) {
@@ -32,7 +28,8 @@ public class CommonElementsBetweenArrays {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		CommonElementsBetweenArrays commonElementsBetweenArrays = new CommonElementsBetweenArrays();
+		CommonElementsBetweenArrays commonElementsBetweenArrays =
+				new CommonElementsBetweenArrays();
 		int []a = new int[]{1,2,3,4,10,6};
 		int []b = new int[]{5,2,3,6};
 		commonElementsBetweenArrays.printCommonElements(a, b);
