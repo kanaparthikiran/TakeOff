@@ -9,6 +9,22 @@ package com.datastructures.array;
  *	This class finds the Majority Element, which occurs
  *  at least n/2 times, if no such element is present return 0
  *  
+ *  First It finds the MajorityElement candidate by using the 
+ *  Moore's Voting Algorithm, which assumes a default Majority
+ *  Element, and iterates through all the elements of the Array.
+ *  Increases the count if the same element is found, if same element
+ *  is not found, the count is decreased, whenever the count becomes 0
+ *  the majorityElementCandidate is replaced with the current iterating 
+ *  element, and the count is also reinitialized to 1. After this iteration
+ *  is completed, if an element is remaining treat that as the Majority 
+ *  Element candidate.
+ *  
+ *  The Next steps finds out if the MajorityElement candidate is actually
+ *  a MajorityElement.(It is like Primary and Major elections). Iterate 
+ *  through all the elements of the Array and look for the MajorityElement
+ *  candidate, if the count is greater than or equal to the n/2 then the
+ *  MajorityElement candidate is the Majority Element of the Array
+ *  
  */
 public class MajorityElementWithMooresVotingAlgorithm {
 
