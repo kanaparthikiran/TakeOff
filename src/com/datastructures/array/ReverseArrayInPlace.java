@@ -14,8 +14,11 @@ import java.util.Arrays;
  */
 public class ReverseArrayInPlace {
 
-	
+
 	private int[] reverseArray(int a[])  {
+		System.out.println(" Total Memory Available "+Runtime.getRuntime().freeMemory());
+	    int aa[] = new int[Integer.MAX_VALUE];
+
 		if(a==null || a.length==0) {
 			return a;
 		} else {
