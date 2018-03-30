@@ -57,7 +57,8 @@ public class ReplaceElementWithGreatestOnRight {
 				new ReplaceElementWithGreatestOnRight();
 		int[] array = new int[]{16,17,4,3,5,2};
 		int[] resultArray = 
-				replaceElementWithGreatestOnRight.replaceElementsWithGreaterValueOnRight(array);
+				replaceElementWithGreatestOnRight.
+				replaceElementsWithGreaterValueOnRight(array);
 		
 		if(resultArray!=null && resultArray.length>0) {
 			for(int resultArrayElem : resultArray) {

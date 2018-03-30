@@ -12,9 +12,6 @@ import java.util.Set;
  */
 public class DuplicatesFromASortedArray {
 
-
-
-	
 	  private int a;
 	  public double b;
 	  
@@ -23,11 +20,6 @@ public class DuplicatesFromASortedArray {
 	    this.a = first;
 	    this.b = second;
 	  }
-//	  public static void main(String[] args)
-//	  {
-		
-	  //}
-	  
 	  
 	/**
 	 * 
