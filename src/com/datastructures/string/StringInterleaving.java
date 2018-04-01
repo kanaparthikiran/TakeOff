@@ -36,9 +36,9 @@ public class StringInterleaving {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. 
          * Your class should be named Solution. */
         Scanner scanner = new Scanner(System.in);
-        int totalStrings = scanner.nextInt();
-        String nextString1 = scanner.next();
-        String nextString2 = scanner.next();
+        int totalStrings = 2;
+        String nextString1 = "abcd";
+        String nextString2 = "12345";
         int stringsCount = totalStrings;
         StringInterleaving stringInterleaving = new StringInterleaving();
         int startIndexEven=0,incrementEven=2;
