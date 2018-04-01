@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.datastructures.sorting;
+package com.algorithms.sorting;
 
 /**
  * @author kkanaparthi

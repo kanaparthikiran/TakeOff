@@ -5,4 +5,4 @@
  * @author kkanaparthi
  *
  */
-package com.datastructures.sorting;
+package com.algorithms.sorting;
