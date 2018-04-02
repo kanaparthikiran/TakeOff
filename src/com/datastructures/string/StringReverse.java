@@ -9,11 +9,6 @@ package com.datastructures.string;
  */
 public class StringReverse {
 
-	/**
-	 * 
-	 */
-	public StringReverse() {
-	}
 
 	
 	/**
@@ -75,6 +70,8 @@ public class StringReverse {
 	}
 	
 	
+
+	
 	/**
 	 * This method prints the Fibonacci 
 	 * numbers Iteratively
@@ -129,7 +126,8 @@ public class StringReverse {
 		} else {
 			for(int i=1;i<=number;i++) {
 				result = result*i;	
-				System.out.println(" Result Calculated as "+ result+" number "+number);
+				System.out.println(" Result Calculated as "
+						+ result+" number "+number);
 			}
 		}
 		return result;

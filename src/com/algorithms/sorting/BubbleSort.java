@@ -3,6 +3,9 @@
  */
 package com.algorithms.sorting;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author kkanaparthi
  * 
@@ -28,7 +31,6 @@ public class BubbleSort {
 				System.out.print(" "+ inputElemenet);
 			}
 		}
-
 		input = bubbleSort.bubbleSortElements(input);
 		
 		System.out.println("\n\n\n After Sorting the Elements are ");
@@ -37,8 +39,34 @@ public class BubbleSort {
 				System.out.print(" "+ inputElemenet);
 			}
 		}
+		String in ="abc";
+		List<String> allPermutations = bubbleSort.
+				printAllPermutations("",in,new ArrayList<String>());
+		
+		System.out.println("\n=====================================\n");
+		if(allPermutations!=null) {
+			allPermutations.forEach(elem->System.out.println(" "+elem));
+		}
+
 	}
 
+	
+	private List<String> printAllPermutations(String prefix,String suffix,
+			List<String> allStrings) {
+		if(suffix==null || suffix.length()==0) {
+			allStrings.add(prefix+suffix);
+		} else {
+				 for(int i=0;i<suffix.length();i++) {
+					 String s = suffix.substring(0, i)+
+							 suffix.substring(i+1,suffix.length());
+					 printAllPermutations(prefix+suffix.charAt(i),
+							 s,allStrings);
+				 }
+		}
+		return allStrings;
+	}
+	
+	
 	/**
 	 * 
 	 * @param input

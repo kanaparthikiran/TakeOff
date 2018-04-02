@@ -24,7 +24,8 @@ public class PermutationsOfAString {
 	 * @param suffix
 	 * @return
 	 */
-	private List<String> getPermutationsOfString(String prefix,String suffix,List<String> allPermutations ) {
+	private List<String> getPermutationsOfString
+			(String prefix,String suffix,List<String> allPermutations ) {
 		 	if(suffix.length()==0) {
 		    	allPermutations.add(prefix+suffix);
 		    	//System.out.println(" Base Case "+ prefix+suffix);
@@ -46,12 +47,12 @@ public class PermutationsOfAString {
 		PermutationsOfAString permutationsOfAString  = new PermutationsOfAString();
 		String inputString = "abcd";
 		List<String> allPermutationsOfString = 
-				permutationsOfAString.getPermutationsOfString("", inputString,new ArrayList<String>());
+				permutationsOfAString.getPermutationsOfString("", 
+						inputString,new ArrayList<String>());
 		System.out.println("Printing all Permutations of the String ");
 		if(!allPermutationsOfString.isEmpty()) {
-			for(String permutations : allPermutationsOfString) {
-				System.out.println(" "+ permutations);
-			}
+			allPermutationsOfString.forEach(element->System.out.println( " " +element));
+			
 		}
 	}
 
