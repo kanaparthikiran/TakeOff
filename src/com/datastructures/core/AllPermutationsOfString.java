@@ -9,15 +9,17 @@ package com.datastructures.core;
  */
 public class AllPermutationsOfString {
 
+	private static int counter = 0;
 		  public static void main(String args[]) {
-			  permuteString("", "ab");
-		    
-		//    permutation("ab");
+		//	  permuteString("", "ab");
+		     int counter = 0;
+		   permutation("abc");
 		  }
 
 		  public static void permuteString(String beginningString, String endingString) {
 		    if (endingString.length() == 0)  {
-		    	System.out.println("Base Case " +beginningString + endingString);
+		    	//System.out.println("Base Case " +beginningString + endingString);
+		    	//return beginningString + endingString;
 		    }
 		    else {
 			      for (int i = 0; i < endingString.length(); i++) {
@@ -41,7 +43,8 @@ public class AllPermutationsOfString {
 
 			private static void permutation(String prefix, String str) {
 			    int n = str.length();
-			    if (n == 0) System.out.println(prefix);
+			    counter++;
+			    if (n == 0) System.out.println(prefix+" counter "+counter);
 			    else {
 			        for (int i = 0; i < n; i++)
 			            permutation(prefix + str.charAt(i), str.substring(0, i) 

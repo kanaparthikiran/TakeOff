@@ -54,6 +54,24 @@ public class PermutationsOfAString {
 			allPermutationsOfString.forEach(element->System.out.println( " " +element));
 			
 		}
+		
+		int [] array = new int[]{1,4,5,6,9,11,12};
+		
+		int maxElement =array[0];
+		
+		int secondMaxElement=array[1];
+		
+		for(int element : array) {
+			if(element>maxElement) {
+				secondMaxElement = maxElement;
+				maxElement = element;
+			} else if(element>secondMaxElement) {
+				secondMaxElement = element;
+			}
+		}
+		System.out.println("Max Element "+maxElement+" second Max Element "+secondMaxElement
+				+" difference between them "+(maxElement-secondMaxElement));
+		
 	}
 
 }
