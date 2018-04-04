@@ -11,22 +11,25 @@ import java.util.List;
 
 /**
  * @author kkanaparthi
+ * 
+ * This class performs Alphanumeric Comparison for the 
+ * given input Strings, such that if two strings are equal 
+ * alphabetically, they should be sorted by their Alphabetic 
+ * Values, and then by their Numerical Order in increasing Order.
  *
  */
 public class AlphanumericComparator {
 
-
+	
 	public static void main(String[] args) {
 		
-		AlphanumericComparator alphanumericComparator = new AlphanumericComparator();
-		
-		Person person1 = new Person("1Kiran",20);
-		Person person2 = new Person("10Akhil",3);
-		Person person3 = new Person("2Vasu",18);
-		Person person4 = new Person("3Apple",25);
-		Person person5 = new Person("9Akshay",40);
-		Person person6 = new Person("Ram",45);
-		Person person7 = new Person("Puppy",30);
+		Person person1 = new Person("Apple1",20);
+		Person person2 = new Person("Apple10",3);
+		Person person3 = new Person("2Google",18);
+		Person person4 = new Person("Apple6",25);
+		Person person5 = new Person("Apple3",21);
+		Person person6 = new Person("Amazon",45);
+		Person person7 = new Person("Apple2",20);
 		
 		List<Person> personsList = new ArrayList<>();
 		personsList.add(person1);
@@ -38,7 +41,7 @@ public class AlphanumericComparator {
 		personsList.add(person7);
 		System.out.println(" Printing the List Elements Before sort ");
 		Collections.sort(personsList,new NameComparator());
-		Collections.sort(personsList,new AgeComparator());
+		//Collections.sort(personsList,new AgeComparator());
 
 		System.out.println(" Printing the List Elements After sort ");
 		
@@ -48,6 +51,7 @@ public class AlphanumericComparator {
 		
 	}
 
+	
 	
 	
 	
@@ -62,11 +66,104 @@ class NameComparator implements Comparator<Person>  {
 
 	@Override
 	public int compare(Person pO1, Person pO2) {
-		if(pO1!=null && pO2!=null&& pO1.getName()!=null && pO2.getName()!=null) {
-			return pO1.getName().compareToIgnoreCase(pO2.getName());
-		} 
-		return 0;
+		int compareValue = 0;
+		if(pO1!=null && pO2!=null &&
+				pO1.getName()!= null && pO2.getName()!= null) {
+				if(areDigitsPresent(pO1.getName()) && areDigitsPresent(pO2.getName())) {
+					
+					String nonDigitString1 = getNonDigitString(pO1.getName());
+					String nonDigitString2 = getNonDigitString(pO2.getName());
+					
+					System.out.println(" nonDigitString1 " + nonDigitString1
+							+" nonDigitString2 "+nonDigitString2
+							+" pO1.getName() "+pO1.getName()
+							+" pO2.getName() "+pO2.getName());
+					
+					compareValue =
+							nonDigitString1.compareToIgnoreCase(nonDigitString2);
+					if(compareValue==0) {
+						int digit1 = getDigitsPresent(pO1.getName());
+						int digit2 = getDigitsPresent(pO2.getName());
+						compareValue = digit1 - digit2;
+						System.out.println("\n\n pO1.getName() "+pO1.getName()
+						+" pO2.getName() "+pO2.getName()
+						+" digit1 "+
+						digit1
+						+" digit2 "+
+						digit2
+						+" compareValue "+compareValue);
+					}
+				} else {
+					compareValue = pO1.getName().compareToIgnoreCase(pO2.getName());
+				}
+		}
+		return compareValue;
 	}
+
+	/**
+	 * This methods finds if the given character is Alphabetic 
+	 * Character
+	 * @param input
+	 * @return
+	 */
+	private String getNonDigitString(String  input) {
+		String nonDigitString = "";
+		StringBuilder sb = new StringBuilder();
+		if(input!=null && input.length()>0) {
+			for(int i=0;i<input.length();i++) {
+				char charElem = input.charAt(i);
+				if(Character.isLetter((charElem))) {
+					sb.append(charElem);
+				}
+			}
+		}
+			nonDigitString = sb.toString();
+		return nonDigitString;
+	}
+	
+	
+	/**
+	 * This methods finds if the given character is Alphabetic 
+	 * Character
+	 * @param input
+	 * @return
+	 */
+	private int getDigitsPresent(String  input) {
+		int digitPresent =0;
+		StringBuilder stirngBuffer = new StringBuilder();
+		if(input!=null && input.length()>0) {
+			for(int i=0;i<input.length();i++) {
+				char charElem = input.charAt(i);
+				 if(Character.isDigit(charElem)) {
+					stirngBuffer.append(charElem);
+				} 
+			}
+		}
+			digitPresent = Integer.parseInt(stirngBuffer.toString());
+		return digitPresent;
+	}
+	
+	/**
+	 * This methods finds if the given character is Alphabetic 
+	 * Character
+	 * @param input
+	 * @return
+	 */
+	public boolean areDigitsPresent(String  input) {
+		boolean digitPresent = false;
+		if(input!=null && input.length()>0) {
+			for(int i=0;i<input.length();i++) {
+				char charElem = input.charAt(i);
+				if(Character.isLetter((charElem))) {
+				} else if(Character.isDigit(charElem)) {
+					digitPresent = true;
+					break;
+				} 
+			}
+		}
+		return digitPresent;
+	}
+	
 }
 
 class AgeComparator implements Comparator<Person>  {
@@ -79,6 +176,7 @@ class AgeComparator implements Comparator<Person>  {
 		return 0;
 	}
 }
+
 
 
 /**
