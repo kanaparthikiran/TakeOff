@@ -90,7 +90,8 @@ public class NOSQLClientTest {
 				}
 			}
 			
-			System.out.println(" Updated database row collection.getCount();  "+collection.getCount());
+			System.out.println(" Updated database row collection.getCount();"
+					+ "  "+collection.getCount());
 			
 		} catch(Exception ex) {
 			ex.printStackTrace();

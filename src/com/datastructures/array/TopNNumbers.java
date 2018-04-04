@@ -29,7 +29,7 @@ public class TopNNumbers {
 	}
 	
 		
-		  /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+		  /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named UnSortedArrayAllElementsWithGivenSum. */
 //	       Scanner sc=new Scanner(System.in);  
 //
 //	        System.out.println(" n value is "+ sc.nextInt());
