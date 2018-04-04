@@ -3,9 +3,6 @@
  */
 package com.datastructures.stack;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * This method adds a new method to stack called min() 
  * with O(1) time complexity
@@ -17,7 +14,7 @@ public class StackWithMiniumOperation {
 
 	private Node topOfStackNode;
 	private Node minOfStackNode = new Node(Integer.MAX_VALUE);
-    private static   List<Character> charArray = Arrays.asList('(','{','[');
+//    private static   List<Character> charArray = Arrays.asList('(','{','[');
 
 	/**
 	 * This method adds the element to the Top Of the Stack

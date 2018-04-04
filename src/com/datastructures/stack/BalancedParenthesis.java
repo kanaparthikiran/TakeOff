@@ -3,16 +3,18 @@
  */
 package com.datastructures.stack;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
+ * 
  * @author kkanaparthi
+ * 
+ * This class handles the Parenthesis matching using
+ * Stacks. Whenever a start character of the parenthesis
+ * is encountered, it is pushed on to the stack
  *
  */
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-
 public class BalancedParenthesis {
     
     private static final List<Character> startChars = Arrays.asList('(','{','[');

@@ -52,6 +52,8 @@ public class SimpleThreadPoolClient  extends RecursiveAction  {
 		employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
 		long coountOfAllElem = employees.stream().count();
 		
+		//long coountOfAllElemA = employees.stream().min();
+
 		System.out.println("THe by Dept Group as is  "+byDept+"  coountOfAllElem "+coountOfAllElem
 				);
 		
