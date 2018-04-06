@@ -29,23 +29,23 @@ public class FindTwoMissingNumbers {
 	 */
 	private int[] missingTwoNumbers(int[] input,int n) {
 		int result [] = new int[2];
-		int XOROfAllNElements = 0;
-		int XOROfAArrayElements = 0;
+		int xorOfAllNElements = 0;
+		int xorOfAArrayElements = 0;
 		int sumOfMissingNumbers = 0;
 		
 		//Sum of All Array Elements
 		if(input!=null && input.length>0) {
 			for(int element : input ) {
-				XOROfAArrayElements ^=element;
+				xorOfAArrayElements ^=element;
 			}
 		}
 		//Sum of First N Numbers
 		for(int i=1;i<=n;i++) {
-			XOROfAllNElements ^=i;
+			xorOfAllNElements ^=i;
 		}
 		
 		//Sum of Missing Numbers
-		sumOfMissingNumbers = XOROfAArrayElements^XOROfAllNElements;
+		sumOfMissingNumbers = xorOfAArrayElements^xorOfAllNElements;
 		
 		int middle = sumOfMissingNumbers/2;
 		System.out.println(" middle "+ middle+"  sumOfMissingNumbers "
@@ -56,36 +56,36 @@ public class FindTwoMissingNumbers {
 		for(int i=1;i<=middle;i++) {
 			middleLessXOR ^=i;
 		}
-		int XOROfArrayElementsUpToMiddle = 0;
+		int xorOfArrayElementsUpToMiddle = 0;
 		
 		for(int i=0;i<=n-1;i++) {
 			if(input[i]<=middle) {
-				XOROfArrayElementsUpToMiddle^=input[i];
+				xorOfArrayElementsUpToMiddle^=input[i];
 			} else {
 				break;
 			}
 		}
 		
-		result[0] = middleLessXOR^XOROfArrayElementsUpToMiddle;
+		result[0] = middleLessXOR^xorOfArrayElementsUpToMiddle;
 		
 		System.out.println("  middleLessXOR "+middleLessXOR
-				+"  XOROfArrayElementsUpToMiddle "+XOROfArrayElementsUpToMiddle
+				+"  XOROfArrayElementsUpToMiddle "+xorOfArrayElementsUpToMiddle
 				+" result[0] "+result[0]);
 		
 		int middleMoreXOR = 0;
 		for(int i=middle+1;i<=n;i++) {
 			middleMoreXOR ^=i;
 		}
-		int XOROfAllElementsAfterMiddle = 0;
+		int xorOfAllElementsAfterMiddle = 0;
 		for(int i=0;i<input.length;i++) {
 			if(input[i]>middle) {
-				XOROfAllElementsAfterMiddle^=input[i];
+				xorOfAllElementsAfterMiddle^=input[i];
 			}
 		}
-		result[1] = middleMoreXOR^XOROfAllElementsAfterMiddle;
+		result[1] = middleMoreXOR^xorOfAllElementsAfterMiddle;
 		
 		System.out.println("  middleMoreXOR "+middleMoreXOR
-				+"  XOROfAllElementsAfterMiddle "+XOROfAllElementsAfterMiddle);
+				+"  XOROfAllElementsAfterMiddle "+xorOfAllElementsAfterMiddle);
 		return result;
 	}
 
