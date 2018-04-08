@@ -176,7 +176,8 @@ public class LinkedList {
 	
 	
 	public void reverseList() {
-	    if(headNode==null||headNode.nextNode==null) {
+	    if(headNode==null||
+	    		headNode.nextNode==null) {
 	        return;
 	    } else {
 		    Node p1 = headNode;
@@ -246,16 +247,16 @@ public class LinkedList {
 	}
 
 
-	/**
-	 * 
-	 */
-	private void lullaby() {
-		try {
-			Thread.sleep(1000);
-		} catch(Exception ex) {
-			ex.printStackTrace();
-		}
-	}
+//	/**
+//	 * 
+//	 */
+//	private void lullaby() {
+//		try {
+//			Thread.sleep(1000);
+//		} catch(Exception ex) {
+//			ex.printStackTrace();
+//		}
+//	}
 	
 
 	/**

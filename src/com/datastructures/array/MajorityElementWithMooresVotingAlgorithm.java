@@ -99,7 +99,7 @@ public class MajorityElementWithMooresVotingAlgorithm {
 		
 		System.out.println(" The Majority Element is "+resultElement);
 		
-		int [] inputError = new int[]{1,2,2,4,5,3,2,2,2,6,2,1,3,4};
+		int [] inputError = new int[]{1,2,2,4,5,3,2,2,2,6,2,3,3,4,3,3,1,3,3,3,3,3,3,3};
 		int resultElementError = majorityElement.getMajorityElement(inputError);
 
 		System.out.println(" The Majority Element is "+resultElementError);
