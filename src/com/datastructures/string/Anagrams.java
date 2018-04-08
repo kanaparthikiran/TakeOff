@@ -62,7 +62,7 @@ public class Anagrams {
 	public static void main(String[] args) {
 		Anagrams anagrams = new Anagrams(); 
 		String s1 = "12345";
-		String s2 = "54312";
+		String s2 = "543123";
 		boolean areAnagrams = anagrams.areAnagrams(s1, s2);
 		System.out.println(" Are Anagrams Value is "+areAnagrams);
 	}

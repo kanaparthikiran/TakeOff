@@ -47,7 +47,8 @@ public class ReverseWordsOfAString {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ReverseWordsOfAString reverseWordsOfAString = new ReverseWordsOfAString();
+		ReverseWordsOfAString reverseWordsOfAString = 
+				new ReverseWordsOfAString();
 		String inputSentence = "Welcome to Algorithms Design";
 		String response = 
 				reverseWordsOfAString.reverseWordsOfString(inputSentence);
