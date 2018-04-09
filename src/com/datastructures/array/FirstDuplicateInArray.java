@@ -50,6 +50,23 @@ public class FirstDuplicateInArray {
 		int[] a = new int[]{8, 4, 6,2, 7, 4, 7, 9, 5, 8,9,1};
 		int firstDuplicate = firstDuplicateInArray.firstDuplicateNumber(a);
 		System.out.println(" first Duplicate "+ firstDuplicate);
+		
+		int[] elements = new int[]{1,3,2,2,4,5,6,5};
+		int duplicateElement = firstDuplicateInArray.duplictaeInArray(elements);
+		System.out.println(" The First Duplicate Element is "+ duplicateElement);
+
+	}
+	
+	private int duplictaeInArray(int[] elements) {
+		int duplicatElement  = -1;
+		for(int element:elements) {
+			if(elements[Math.abs(element)-1]<0) {
+	              return Math.abs(element);
+			} else {
+				elements[Math.abs(element)-1] *=-1;
+			}
+		}
+		return duplicatElement;
 	}
 
 }
