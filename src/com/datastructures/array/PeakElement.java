@@ -13,7 +13,7 @@ package com.datastructures.array;
  * We need return one of the Peak Elements.
  * 
  * We use Binary Search to find the Peak Element, Will 
- * start with middle element, if it has the lest side and 
+ * start with middle element, if it has the left side and 
  * right side elements less than to it, then that is the Peak
  * Element.
  * 

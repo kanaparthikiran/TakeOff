@@ -34,6 +34,8 @@ public class BinarySearchIterative {
 			System.out.println(" The element is Not"
 					+ "  found in the Array ");
 		}
+		
+		System.out.println(" Century "+ (1905/100));
 	}
 
 	

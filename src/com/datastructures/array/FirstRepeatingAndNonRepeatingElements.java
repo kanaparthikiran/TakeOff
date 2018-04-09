@@ -44,7 +44,7 @@ public class FirstRepeatingAndNonRepeatingElements {
 	
 	private int  firstNonRepeatedHashSet(int [] elements)  {
 		int firstNonRepatedElement = -1;
-		Set<Integer> hashOfElements = new HashSet<Integer>();
+		Set<Integer> hashOfElements = new HashSet<>();
 		if(elements!=null && elements.length>0) {
 			for(int i=elements.length-1;i>=0;i--) {
 				if(!hashOfElements.contains(elements[i])) {

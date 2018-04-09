@@ -52,8 +52,32 @@ public class FirstNonRepeatedCharacter {
 				new FirstNonRepeatedCharacter();
 		char c = firstNonRepeatedCharacter.firstNonRepeatedChar("abb");
 		System.out.println(" First Non Repeated Character "+ c);
+		
+		char nonRepPractice = firstNotRepeatingCharacter("abacc");
+		
+		System.out.println(" nonRepPractice "+ nonRepPractice);
+
 	}
 
+	
+    private static char firstNotRepeatingCharacter(String s) {
+        char[] validationArray = new char[128];
+        char returnValue  = ' ';
+        if(!s.isEmpty()) {
+            for(int i=0;i<s.length();i++) {
+                validationArray[s.charAt(i)]++;
+            }
+        }
+        
+            for(int i=0;i<s.length();i++) {
+                if(validationArray[s.charAt(i)]==1) {
+                    return s.charAt(i);
+                }
+            }
+           return returnValue;   
+    } 
+    
+    
 	private int[] getCharCountArrayA(String input) {
 		int [] resultArray = new int[128];
 		if(input!=null && input.length()>0) {
