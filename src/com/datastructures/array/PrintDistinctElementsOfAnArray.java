@@ -18,7 +18,7 @@ public class PrintDistinctElementsOfAnArray {
 		if(elements!=null && elements.length>0) {
 			Arrays.sort(elements);
 			for(int i=0;i<elements.length;i++) {
-				if(i<elements.length-1 && elements[i]==elements[i+1]) {
+				while(i<elements.length-1 && elements[i]==elements[i+1]) {
 					i++;
 				}
 				System.out.print(elements[i]+" ");
