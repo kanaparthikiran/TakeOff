@@ -19,9 +19,9 @@ public class FirstNonRepeatedCharacter {
 	 * @return
 	 */
 	private int[] getArrayWithCounts(String input) {
-		int [] charCountArray = new int[128];
+		int [] charCountArray = new int[26];
 		for(int i=0;i<input.length();i++) {
-			charCountArray[input.charAt(i)]++;
+			charCountArray[input.charAt(i)-'a']++;
 		}
 		return charCountArray;
 	}
@@ -37,14 +37,15 @@ public class FirstNonRepeatedCharacter {
 		for(int i=0;i<input.length();i++)  {
 			System.out.println("input.charAt(i) "+input.charAt(i)+
 					" arrayWithCharCounts[input.charAt(i)] "+
-					arrayWithCharCounts[input.charAt(i)]);
-			if(arrayWithCharCounts[input.charAt(i)]==1) {
+					arrayWithCharCounts[input.charAt(i)-'a']);
+			if(arrayWithCharCounts[input.charAt(i)-'a']==1) {
 				return input.charAt(i);
 			}
 		}
 		}
 		return elem;
 	}
+	
 	
 	
 	public static void main(String a[]) {
