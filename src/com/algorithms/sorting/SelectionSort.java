@@ -4,7 +4,7 @@
 package com.algorithms.sorting;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  *
  */
 public class SelectionSort {

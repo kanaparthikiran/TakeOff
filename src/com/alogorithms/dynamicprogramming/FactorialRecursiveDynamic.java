@@ -6,7 +6,7 @@ package com.alogorithms.dynamicprogramming;
 import java.math.BigInteger;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  *
  */
 public class FactorialRecursiveDynamic {

@@ -16,6 +16,7 @@ import java.util.List;
  * 
  */
 public class PermutationsOfAString {
+	
 
 	/**
 	 * This method gets all the permutations of a String

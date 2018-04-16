@@ -4,7 +4,7 @@
 package com.gof.design.patterns.visitor;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  *
  */
 public class UPSDeliveryDate implements IDeliveryDate {

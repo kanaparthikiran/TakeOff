@@ -11,7 +11,7 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  *
  */
 public class NOSQLClientTest {

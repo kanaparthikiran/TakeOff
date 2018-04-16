@@ -4,9 +4,9 @@
 package com.algorithms.sorting;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  * 
- * This class sorts the input data using
+ *  This class sorts the input data using
  *  mergeSort of the Input Data
  *  Merge sort uses Divide and Conquer strategy to
  *  divide the Initial Array into one element of each, sorts them 

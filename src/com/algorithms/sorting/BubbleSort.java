@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  * 
  * This class sorts the input using BubbleSort
  * We start the beginning of the array, and  swap the 

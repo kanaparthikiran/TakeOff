@@ -13,6 +13,7 @@ package com.datastructures.string;
  *
  */
 public class StringCompression {
+	
 
 	/**
 	 * 

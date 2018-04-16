@@ -4,19 +4,12 @@
 package com.core.callbyvalueorref;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  *
  */
 public class CallByValueVsCallByRef {
 
 	int a,b;
-	/**
-	 * 
-	 */
-	public CallByValueVsCallByRef() {
-	}
-
-
 	
 	private int callPrimitives(int a,int b) {
 		a = a+10;
@@ -45,7 +38,16 @@ public class CallByValueVsCallByRef {
 		callByValueVsCallByRef = callByValueVsCallByRefTwo;
 		callByValueVsCallByRefTwo = temp;
 		
-		System.out.println(" Inside Method Values a "+callByValueVsCallByRef.getA()+" b "+callByValueVsCallByRef.getB());
+		
+		
+//		CallByValueVsCallByRef temp = callByValueVsCallByRef;
+//		callByValueVsCallByRef = callByValueVsCallByRefTwo;
+//		callByValueVsCallByRefTwo = temp;
+		
+		
+		System.out.println(" Inside Method Values a "+callByValueVsCallByRef.getA()
+			+" b "+callByValueVsCallByRef.getB()+"  callByValueVsCallByRefTwo Values  "+callByValueVsCallByRefTwo.getA()
+			+"  callByValueVsCallByRefTwo  "+callByValueVsCallByRefTwo.getB());
 
 		int c =  callByValueVsCallByRef.getA()+callByValueVsCallByRef.getB();
 		return c;
@@ -70,25 +72,29 @@ public class CallByValueVsCallByRef {
 	public static void main(String[] args) {
 		int a=5,b=10;
 		CallByValueVsCallByRef  callByValueVsCallByRef = new CallByValueVsCallByRef();
-		System.out.println(" Before Values a "+a+" b "+b);
-		callByValueVsCallByRef.callPrimitives(a, b);
-		System.out.println(" After Values a "+a+" b "+b);
+//		System.out.println(" Before Values a "+a+" b "+b);
+//		callByValueVsCallByRef.callPrimitives(a, b);
+//		System.out.println(" After Values a "+a+" b "+b);
+//		
+//		callByValueVsCallByRef.setA(1);
+//		callByValueVsCallByRef.setB(2);
+//		
+//		System.out.println(" Before Object Values a "+callByValueVsCallByRef.getA()
+//		+" b "+callByValueVsCallByRef.getB());
+
+		CallByValueVsCallByRef  callByValueVsCallByRefTwo =
+				new CallByValueVsCallByRef();
+
+		callByValueVsCallByRef.callObjects
+		(callByValueVsCallByRef,callByValueVsCallByRefTwo);
+
 		
-		callByValueVsCallByRef.setA(1);
-		callByValueVsCallByRef.setB(2);
-		
-		System.out.println(" Before Object Values a "+callByValueVsCallByRef.getA()
+		System.out.println(" AFTER callByValueVsCallByRef Object Values a "
+				+callByValueVsCallByRef.getA()
 		+" b "+callByValueVsCallByRef.getB());
 
-		CallByValueVsCallByRef  callByValueVsCallByRefTwo = new CallByValueVsCallByRef();
-
-		callByValueVsCallByRef.callObjects(callByValueVsCallByRef,callByValueVsCallByRefTwo);
-
-		
-		System.out.println(" AFTER callByValueVsCallByRef Object Values a "+callByValueVsCallByRef.getA()
-		+" b "+callByValueVsCallByRef.getB());
-
-		System.out.println(" AFTER callByValueVsCallByRefTwo Object Values a "+callByValueVsCallByRefTwo.getA()
+		System.out.println(" AFTER callByValueVsCallByRefTwo Object Values a "
+				+callByValueVsCallByRefTwo.getA()
 		+" b "+callByValueVsCallByRefTwo.getB());
 		
 //		System.out.println(" After Object Values a "+callByValueVsCallByRef.getA()
@@ -100,7 +106,8 @@ public class CallByValueVsCallByRef {
 		callByValueVsCallByRefTwo = temp;
 		
 		System.out.println("AFTER SWAPPING ORIGINAL REFERENCES "
-				+ "callByValueVsCallByRefTwo Object Values a "+callByValueVsCallByRefTwo.getA()
+				+ "callByValueVsCallByRefTwo Object Values a "
+				+callByValueVsCallByRefTwo.getA()
 		+" b "+callByValueVsCallByRefTwo.getB());
 		
 	}
@@ -145,7 +152,7 @@ public class CallByValueVsCallByRef {
 
 /**
  * 
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  *
  */
 class Point {

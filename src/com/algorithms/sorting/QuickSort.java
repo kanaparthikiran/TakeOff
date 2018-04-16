@@ -4,7 +4,7 @@
 package com.algorithms.sorting;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  * 
  * This class performs the sorting of the elements 
  * using QuickSort

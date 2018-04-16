@@ -4,7 +4,7 @@
 package com.test.scratchpad;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  *
  */
 public class Customer {
