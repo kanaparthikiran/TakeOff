@@ -31,6 +31,7 @@ public class AlphanumericComparator {
 		Person person6 = new Person("Amazon",45);
 		Person person7 = new Person("Apple2",20);
 		
+		
 		List<Person> personsList = new ArrayList<>();
 		personsList.add(person1);
 		personsList.add(person2);

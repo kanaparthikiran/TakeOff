@@ -10,7 +10,6 @@ package com.algorithms.sorting;
 public class InsertionSort {
 
 
-
 	/**
 	 * @param args
 	 */
