@@ -8,6 +8,7 @@ package com.datastructures.string;
  *
  */
 public class ReverseWordsOfAString {
+	
 
 	/**
 	 * This method reverses the words of a Given 
@@ -20,9 +21,9 @@ public class ReverseWordsOfAString {
 		if(sentence!=null && sentence.length()>0) {
 			String[] currentList = sentence.split("\\s");
 				if(currentList!=null && currentList.length>0) {
-					for(String elem : currentList) {
-						String reversedElement = reverseString(elem);
-						sb.append(reversedElement+" ");
+					for(int i=currentList.length-1;i>=0;i--) {
+						//String reversedElement = reverseString(currentList[i]);
+						sb.append(currentList[i]+" ");
 					}
 				}
 			}
@@ -44,13 +45,20 @@ public class ReverseWordsOfAString {
 		}
 	}
 	
+	private String reverseAString(String input) {
+		if(input==null || input.length()==0) {
+			return input;
+		}
+			return reverseAString(input.substring(1))+input.charAt(0);
+	}
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		ReverseWordsOfAString reverseWordsOfAString = 
 				new ReverseWordsOfAString();
-		String inputSentence = "Welcome to Algorithms Design";
+		String inputSentence = "Do or do not, there is no try.";
 		String response = 
 				reverseWordsOfAString.reverseWordsOfString(inputSentence);
 		System.out.println(" The response is "+ response);
