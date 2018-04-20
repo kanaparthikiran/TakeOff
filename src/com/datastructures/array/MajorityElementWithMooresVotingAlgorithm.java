@@ -75,7 +75,8 @@ public class MajorityElementWithMooresVotingAlgorithm {
 	 * 
 	 * @return
 	 */
-	private int findMajorityCandidateOccurancesHelper(int[] array,int element) {
+	private int findMajorityCandidateOccurancesHelper
+								(int[] array,int element) {
 		int elementCount = 0;
 		if(array!=null && array.length>0) {
 			for(int elem : array) {

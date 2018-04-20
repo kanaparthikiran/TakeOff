@@ -3,7 +3,9 @@
  */
 package com.datastructures.array;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * @author kkanaparthi
@@ -23,26 +25,26 @@ public class LeaderElements {
 	 * @param input
 	 * @return
 	 */
-	private int[] getLeaderElements(int input[]) {
-		int[] leadersArray =  null;
+	private Integer[] getLeaderElements(int input[]) {
+		List<Integer> leadersArray =  null;
 		int j = 1;
 		int currentMaximum = Integer.MIN_VALUE;
 		if(input!=null && input.length>0) {
-			leadersArray = new int[input.length];
-			Arrays.fill(leadersArray, -1);
+			leadersArray = new ArrayList<>();
+			//Arrays.fill(leadersArray, -1);
 			int rightMostElement = input[input.length-1];
-			leadersArray[0] = rightMostElement;
+			leadersArray.add(rightMostElement);
 
 			currentMaximum = rightMostElement;
 			for(int i=input.length-2;i>=0;i--) {
 				if(input[i]>currentMaximum) {
-					leadersArray[j] = input[i];
+					leadersArray.add(input[i]);
 					currentMaximum = input[i];
-					j++;
+				//	j++;
 				}
 			}
 		}
-		return leadersArray;
+		return leadersArray.toArray(new Integer[0]);
 	}
 	
 	/**
@@ -51,7 +53,7 @@ public class LeaderElements {
 	public static void main(String[] args) {
 		LeaderElements leaderElements = new LeaderElements();
 		int[] elements = new int[]{2,3,5,6,11,8,10,1,3};
-		int[] resultArray = leaderElements.getLeaderElements(elements);
+		Integer[] resultArray = leaderElements.getLeaderElements(elements);
 		if(resultArray!=null && resultArray.length>0) {
 			for(int elem : resultArray) {
 				System.out.print(" "+elem);

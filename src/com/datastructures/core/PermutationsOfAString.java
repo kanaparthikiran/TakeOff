@@ -41,6 +41,19 @@ public class PermutationsOfAString {
 	} 
 	
 	
+	private List<String> getPermutationsOfAString
+				(String prefix,String suffix,List<String> allStrings) {
+		if(suffix.length()==0) {
+			allStrings.add(prefix+suffix);
+		} else {
+			for(int i=0;i<suffix.length();i++) {
+				String s = suffix.substring(0,i)+suffix.substring(i+1,suffix.length());
+				getPermutationsOfAString(prefix+suffix.charAt(i),s,allStrings);
+			}
+		}
+		return allStrings;
+	}
+	
 	/**
 	 * @param args
 	 */
@@ -55,6 +68,8 @@ public class PermutationsOfAString {
 			allPermutationsOfString.forEach(element->System.out.println( " " +element));
 			
 		}
+		
+		(permutationsOfAString).getPermutationsOfAString("","abcd",new ArrayList<String>());
 		
 		int [] array = new int[]{1,4,5,6,9,11,12};
 		

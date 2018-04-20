@@ -29,6 +29,7 @@ public class ReverseArrayRotation {
 		if(elements!=null && elements.length>0) {
 			int temp = elements[elements.length-1];
 			for(int i=elements.length-1;i>0;i--) {
+				System.out.println(" "+elements[i]+" "+elements[i-1]);
 				 elements[i] = elements[i-1];
 			}
 			elements[0] = temp;
