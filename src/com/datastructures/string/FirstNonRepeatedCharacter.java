@@ -60,7 +60,12 @@ public class FirstNonRepeatedCharacter {
 
 	}
 
-	
+
+	/**
+	 * 
+	 * @param s
+	 * @return
+	 */
     private static char firstNotRepeatingCharacter(String s) {
         char[] validationArray = new char[128];
         char returnValue  = ' ';
@@ -69,16 +74,20 @@ public class FirstNonRepeatedCharacter {
                 validationArray[s.charAt(i)]++;
             }
         }
-        
-            for(int i=0;i<s.length();i++) {
-                if(validationArray[s.charAt(i)]==1) {
-                    return s.charAt(i);
-                }
+        for(int i=0;i<s.length();i++) {
+            if(validationArray[s.charAt(i)]==1) {
+                return s.charAt(i);
             }
-           return returnValue;   
+        }
+       return returnValue;   
     } 
     
     
+    /**
+     * 
+     * @param input
+     * @return
+     */
 	private int[] getCharCountArrayA(String input) {
 		int [] resultArray = new int[128];
 		if(input!=null && input.length()>0) {
