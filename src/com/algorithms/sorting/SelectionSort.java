@@ -47,40 +47,13 @@ public class SelectionSort {
 	}
 
 	/**
-	 * 
-	 * @param elements
-	 * @return
-	 */
-	private int[] makeSelectionSort(int [] elements) {
-		if(elements!=null && elements.length>0) {
-			for(int i=0;i<elements.length;i++) {
-				int minElement = elements[i];
-				int minIndex = i;
-				for(int j=i+1;j<elements.length;j++) {
-					if(elements[j]<minElement) {
-						minElement = elements[j];
-						minIndex = j;
-					}
-				}
-				if(minElement<elements[i]) {
-					int temp = elements[minIndex];
-					elements[minIndex] = elements[i];
-					elements[i] = temp;
-				}
-			}
-		}
-		
-		return elements;
-	}
-	
-	/**
 	 * This method makes the selection sort 
 	 * of the elements
 	 * 
 	 * @param input
 	 * @return
 	 */
-	private int[] selectionSort(int input[]) {
+	private int[] makeSelectionSort(int input[]) {
 		
 		if(input!=null) {
 			System.out.println("  input.length  "+input.length);
