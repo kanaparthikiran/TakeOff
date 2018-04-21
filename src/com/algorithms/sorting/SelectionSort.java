@@ -7,6 +7,18 @@ import java.util.Arrays;
 
 /**
  * @author Kiran Kanaparthi
+ * 
+ * This class performs Selection Sort.
+ * It starts with the one element in the 
+ * outer loop is chosen as a current Minimum.
+ * Then in the Inner loop compare the currentMinimum
+ * with every other element, if there is a lesser element
+ * that the current minimum, mark that as the element
+ * as the current minimum.
+ * For each iteration of the outer loop, 
+ * After the inner loop is completed, compare if the updated 
+ * current minimum is the same as the initially chosen currentMinimum
+ * , if they are not the same swap the two elements.
  *
  */
 public class SelectionSort {
