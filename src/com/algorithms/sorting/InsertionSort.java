@@ -5,6 +5,18 @@ package com.algorithms.sorting;
 
 /**
  * @author Kiran Kanaparthi
+ * 
+ * This class Does the Insertion Sorting on the
+ * Given Array.
+ * 
+ * The Array is traversed from left to right, at each step
+ * one Key Value is chosen in the outer loop.
+ * 
+ * In the Inner Loop, Start Iterating from the Element at the 
+ * Key Index, and compare the Key with Every Element in the 
+ * Array up to index 0, If they are not in order, the consecutive
+ * elements are swapped(key values does not change, and is used
+ * for comparisons only)
  *
  */
 public class InsertionSort {
@@ -39,22 +51,18 @@ public class InsertionSort {
 	 */
 	private int[] insertionSort(int[] input) {
 		int temp=0,key=0;
-		System.out.println("  input.length "+input.length);
 		if(input!=null && input.length>0) {
-			for(int i=1;i<input.length;i++) {
+			for(int i=0;i<input.length;i++) {
+				int j = i-1;
 				key = input[i];
-				for(int j=i-1;j>=0;j--) {
-					System.out.println(" j "+j+" key "+key);
-					if(key<input[j]) {
-						temp = input[j];
-						input[j] = input[j+1];
-						input[j+1] = temp;						
-					} 
+				while(j>=0 && key<input[j]) {
+					temp = input[j];
+					input[j] = input[j+1];
+					input[j+1] = temp;
+					j--;
 				}
 			}
-			
 		}
-		
 		return input;
 	}
 }
