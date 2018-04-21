@@ -46,31 +46,31 @@ public class SelectionSort {
 		System.out.println("Array Elements "+ Arrays.toString(input));
 	}
 
-	
 	/**
-	 * This method makes Selection Sort
 	 * 
+	 * @param elements
 	 * @return
 	 */
-	private int[] makeSelectionSort(int[] input) {
-		if(input!=null && input.length>0) {
-			for(int i=0;i<input.length;i++) {
-				int minElement = input[i];
-				int minIndex = -1;
-				for(int j=i+1;j<input.length;j++) {
-					if(input[j]<minElement) {
-						minElement = input[j];
+	private int[] makeSelectionSort(int [] elements) {
+		if(elements!=null && elements.length>0) {
+			for(int i=0;i<elements.length;i++) {
+				int minElement = elements[i];
+				int minIndex = i;
+				for(int j=i+1;j<elements.length;j++) {
+					if(elements[j]<minElement) {
+						minElement = elements[j];
 						minIndex = j;
 					}
 				}
-				if(minIndex!=-1) {
-					int temp = input[minIndex];
-					input[minIndex] = input[i];
-					input[i] = temp;
+				if(minElement<elements[i]) {
+					int temp = elements[minIndex];
+					elements[minIndex] = elements[i];
+					elements[i] = temp;
 				}
 			}
 		}
-		return input;
+		
+		return elements;
 	}
 	
 	/**
