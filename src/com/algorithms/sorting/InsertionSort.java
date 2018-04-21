@@ -52,7 +52,7 @@ public class InsertionSort {
 	private int[] insertionSort(int[] input) {
 		int temp=0,key=0;
 		if(input!=null && input.length>0) {
-			for(int i=0;i<input.length;i++) {
+			for(int i=1;i<input.length;i++) {
 				int j = i-1;
 				key = input[i];
 				while(j>=0 && key<input[j]) {
