@@ -1,28 +1,28 @@
 /**
  * 
  */
-package com.design.patterns.gof.structural.decorator;
+package com.design.patterns.gof.structural;
 
 /**
  * @author kkanaparthi
  *
  */
-public class Decaf implements Beverage {
+public class Caramel extends BeverageDecorator {
 
+	
 	/**
 	 * 
 	 */
-	public Decaf() {
-		// TODO Auto-generated constructor stub
+	public Caramel() {
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see com.design.patterns.gof.structural.decorator.Beverage#getCost()
 	 */
 	@Override
 	public double getCost() {
 		// TODO Auto-generated method stub
-		return 2.00;
+		return getBeverage().getCost()+3.50;
 	}
 
 	/* (non-Javadoc)
@@ -31,7 +31,7 @@ public class Decaf implements Beverage {
 	@Override
 	public String getDescription() {
 		// TODO Auto-generated method stub
-		return "Decaf is For Health Conscious People";
+		return getBeverage().getDescription()+ " Akhil likes Caramel";
 	}
 
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.design.patterns.gof.structural.decorator;
+package com.design.patterns.gof.structural;
 
 import java.util.Scanner;
 

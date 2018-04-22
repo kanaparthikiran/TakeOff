@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.design.patterns.gof.creational.singleton;
+package com.design.patterns.gof.creational;
 
 /**
  * @author kkanaparthi

@@ -1,20 +1,18 @@
 /**
  * 
  */
-package com.design.patterns.gof.structural.decorator;
+package com.design.patterns.gof.structural;
 
 /**
  * @author kkanaparthi
  *
  */
-public abstract class BeverageDecorator implements Beverage {
+public class Espresso implements Beverage {
 
-	protected Beverage beverage;
-	
 	/**
 	 * 
 	 */
-	public BeverageDecorator() {
+	public Espresso() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -24,7 +22,7 @@ public abstract class BeverageDecorator implements Beverage {
 	@Override
 	public double getCost() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1.0;
 	}
 
 	/* (non-Javadoc)
@@ -33,21 +31,7 @@ public abstract class BeverageDecorator implements Beverage {
 	@Override
 	public String getDescription() {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/**
-	 * @return the beverage
-	 */
-	public Beverage getBeverage() {
-		return beverage;
-	}
-
-	/**
-	 * @param pBeverage the beverage to set
-	 */
-	public void setBeverage(Beverage pBeverage) {
-		beverage = pBeverage;
+		return "Espresso is for Everyone";
 	}
 
 }

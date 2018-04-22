@@ -1,11 +1,10 @@
 /**
  * 
  */
-package com.design.patterns.gof.creational.singleton;
+package com.design.patterns.gof.creational;
 
 import java.util.Queue;
 
-import com.datastructures.core.LinkedList;
 
 /**
  * @author kkanaparthi
@@ -13,11 +12,7 @@ import com.datastructures.core.LinkedList;
  */
 public class SingletonClient implements Runnable {
 
-	/**
-	 * 
-	 */
-	public SingletonClient() {
-	}
+
 
 	/**
 	 * @param args
@@ -34,11 +29,11 @@ public class SingletonClient implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println("Calling Singleton Instance from the Thread "+ Thread.currentThread().getName());
+		System.out.println("\n Calling Singleton Instance from the Thread "+ Thread.currentThread().getName());
 		Singleton singleton  = Singleton.getMyInstance();
-		System.out.println("Called Singleton Instance from the Thread "+ Thread.currentThread().getName()
-				+" and the Instance  Identification is  "+ System.identityHashCode(singleton)
-				+" Regular HashCode "+singleton.hashCode());
+		System.out.println("\n Called Singleton Instance from the Thread "+ Thread.currentThread().getName()
+				+"\n and the Instance  Identification is  "+ System.identityHashCode(singleton)
+				+"\n Regular HashCode "+singleton.hashCode());
 
 	}
 
