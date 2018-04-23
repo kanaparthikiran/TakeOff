@@ -3,6 +3,7 @@
  */
 package com.test.scratchpad;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,17 @@ import java.util.List;
  */
 public class PermutationsOfAString {
 	
+	
+	
+	private int gcd(int a, int b) {
+		if(b==0) {
+			return a;
+		} else {
+			return gcd(b,a%b);
+		}
+	}
+	
+
 	
 	/**
 	 * 
@@ -34,6 +46,11 @@ public class PermutationsOfAString {
 	return allPermutations;	
 	}
 	
+	/**
+	 * 
+	 * @param input
+	 * @return
+	 */
 	private String getReverseOfAString(String input)  {
 		String reversedString = null;
 		if(input!=null) {
@@ -48,6 +65,11 @@ public class PermutationsOfAString {
 		return reversedString;
 	}
 	
+	/**
+	 * 
+	 * @param input
+	 * @return
+	 */
 	private String reverseArrayUsingCharArray(String input) {
 		char[] arrayOfChars = null;
 		if(input!=null && input.length()>0) {
@@ -61,7 +83,11 @@ public class PermutationsOfAString {
 		return String.valueOf(arrayOfChars);
 	}
 	
-	
+	/**
+	 * 
+	 * @param number
+	 * @return
+	 */
 	private String convertDecimalToBinary(int number) {
 		StringBuilder binaryNumber = new StringBuilder();
 		while(number>0) {
@@ -72,6 +98,11 @@ public class PermutationsOfAString {
 		return String.valueOf(binaryNumber.reverse());
 	}
 	
+	/**
+	 * 
+	 * @param input
+	 * @return
+	 */
 	private String compressString(String input)  {
 		StringBuilder compressedString = new StringBuilder();
 		if(input!=null && input.length()>0) {
@@ -90,6 +121,11 @@ public class PermutationsOfAString {
 		return String.valueOf(compressedString);
 	}
 	
+	
+	/**
+	 * 
+	 * @param input
+	 */
 	private void printRepeatingElements(int[] input) {
 		if(input!=null && input.length>0) {
 			for(int element : input) {
@@ -111,6 +147,11 @@ public class PermutationsOfAString {
 		PermutationsOfAString permutationsOfAString  =
 				new PermutationsOfAString();
 		String input  ="kanaparthi";
+		
+		int gcdOfNumbers =
+				permutationsOfAString.gcd(10, 15);
+		System.out.println(" gcd of numbers is "+gcdOfNumbers);
+		
 		List<String> allPermutations =
 				permutationsOfAString.getAllPermutations(input, "", 
 						input, new ArrayList<String>());
@@ -123,7 +164,8 @@ public class PermutationsOfAString {
 		
 		String reverseUsingCharArray =
 				permutationsOfAString.reverseArrayUsingCharArray(input);
-		System.out.println(" The Reverse of the String using Char Array is "+reverseUsingCharArray);
+		System.out.println(" The Reverse of the String using Char Array is "
+				+ reverseUsingCharArray);
 		
 		String binaryNumber =
 				permutationsOfAString.convertDecimalToBinary(15);
