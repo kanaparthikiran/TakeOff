@@ -24,25 +24,36 @@ public class CoinChangeProblem {
 	 * @param index
 	 * @return
 	 */
-	private int makeChange(int amount,int[] denominations,
-			int index,Map<String,Integer> cacheMap) {
+	private long makeChange(int amount,int[] denominations,
+			int index,Map<String,Long> cacheMap) {
 		
-//		System.out.println(" index at each step "+ index);
-		if(index>=denominations.length-1) { return 1;}
-		int denominationAmount = denominations[index];
-//		System.out.println(" index "+index
-//				+" denominationAmount "+denominationAmount);
+		System.out.println(" index at each step "+ index);
+
+		if(amount==0) { return 1;}
+		
+		if(index>=denominations.length) { return 0;}
+		
 		String preComputedKey = amount+"_"+index;
+		
 		if(cacheMap.containsKey(preComputedKey)) {
 			return cacheMap.get(preComputedKey);
 		}
-		int waysToMakeChange = 0;
-		for(int i=0;i*denominationAmount<amount;i++) {
+		
+		int denominationAmount = denominations[index];
+		
+		System.out.println(" index "+index
+				+" denominationAmount "+denominationAmount);
+
+		Long waysToMakeChange = 0l;
+		for(int i=0;i*denominationAmount<=amount;i++) {
 			int amountRemaining = amount - i*denominationAmount;
-//			System.out.println(" amountRemaining "+amountRemaining
-//					+" denominations "+denominations[index]+"  index "+index );
+			System.out.println(" amountRemaining "+amountRemaining
+					+" denominations "+denominations[index]
+							+"  index "+index );
 			waysToMakeChange += makeChange
 					(amountRemaining, denominations, index+1,cacheMap);
+			System.out.println("waysToMakeChange "+waysToMakeChange);
+
 		}
 		cacheMap.put(preComputedKey, waysToMakeChange);
 		return waysToMakeChange;
@@ -54,11 +65,11 @@ public class CoinChangeProblem {
 	public static void main(String[] args) {
 		CoinChangeProblem coinChangeProblem =
 				new CoinChangeProblem();
-		int n = 6;
-		int[] denominations = new int[] {25,10,5,1};
+		int n = 250;
+		int[] denominations = new int[] {41,34,46,9,37,32,42,21,7,13,1,24,3,43,2,23,8,45,19,30,29,18,35,11};
 		int index = 0;
-		Map<String,Integer> cacheMap = new ConcurrentHashMap<String,Integer>();
-		int waysToMakeChange =
+		Map<String,Long> cacheMap = new ConcurrentHashMap<>();
+		long waysToMakeChange =
 				coinChangeProblem.makeChange(n, denominations, index,cacheMap);
 		System.out.println(" The Number of Ways "
 				+ "  to Make change are "+waysToMakeChange);
