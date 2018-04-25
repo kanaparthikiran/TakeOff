@@ -6,7 +6,7 @@ package com.datastructures.array;
 import java.util.Arrays;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
  *
  */
 public class PrintDistinctElementsOfAnArray {

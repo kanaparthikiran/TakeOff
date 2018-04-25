@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Kiran
+ * @author Kiran Kanaparthi
  *
  */
 public class PermutationsOfAString {
@@ -117,7 +117,6 @@ public class PermutationsOfAString {
 				}
 			}
 		}
-		
 		return String.valueOf(compressedString);
 	}
 	
