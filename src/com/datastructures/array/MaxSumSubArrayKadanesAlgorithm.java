@@ -4,7 +4,9 @@
 package com.datastructures.array;
 
 /**
- * @author kkanaparthi
+ * @author Kiran Kanaparthi
+ * 
+ * This class handles the Max Sum Subsequence Algorithm
  *
  */
 public class MaxSumSubArrayKadanesAlgorithm {
