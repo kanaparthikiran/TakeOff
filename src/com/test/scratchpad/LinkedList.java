@@ -6,7 +6,6 @@ package com.test.scratchpad;
 import java.util.HashSet;
 import java.util.Set;
 
-import sun.security.krb5.internal.tools.Ktab;
 
 /**
  * @author Kiran Kanaparthi
