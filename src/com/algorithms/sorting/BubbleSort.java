@@ -45,7 +45,7 @@ public class BubbleSort {
 		
 		System.out.println("\n=====================================\n");
 		if(allPermutations!=null) {
-			allPermutations.forEach(elem->System.out.println(" "+elem));
+			allPermutations.forEach(elem->System.out.println("each elem "+elem));
 		}
 
 	}
