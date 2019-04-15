@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Big O"/>
+	<classpathentry kind="src" path="Ch 01. Arrays and Strings"/>
+	<classpathentry kind="src" path="Ch 02. Linked Lists"/>
+	<classpathentry kind="src" path="Ch 03. Stacks and Queues"/>
+	<classpathentry kind="src" path="Ch 04. Trees and Graphs"/>
+	<classpathentry kind="src" path="Ch 05. Bit Manipulation"/>
+	<classpathentry kind="src" path="Ch 06. Math and Logic Puzzles"/>
+	<classpathentry kind="src" path="Ch 07. Object-Oriented Design"/>
+	<classpathentry kind="src" path="Ch 08. Recursion and Dynamic Programming"/>
+	<classpathentry kind="src" path="Ch 09. Scalability and Memory Limits"/>
+	<classpathentry kind="src" path="Ch 10. Sorting and Searching"/>
+	<classpathentry kind="src" path="Ch 13. Java"/>
+	<classpathentry kind="src" path="Ch 15. Threads and Locks"/>
+	<classpathentry kind="src" path="Ch 16. Moderate"/>
+	<classpathentry kind="src" path="Ch 17. Hard"/>
+	<classpathentry kind="src" path="CtCILibrary"/>
+	<classpathentry kind="src" path="Introduction"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/avalon-framework-api-4.3.1.jar"/>
 	<classpathentry kind="lib" path="lib/avalon-framework-impl-4.3.1.jar"/>
 	<classpathentry kind="lib" path="lib/batik-all-1.9.jar"/>
@@ -38,6 +59,5 @@
 	<classpathentry kind="lib" path="lib/xml-apis-1.3.04.jar"/>
 	<classpathentry kind="lib" path="lib/xml-apis-ext-1.3.04.jar"/>
 	<classpathentry kind="lib" path="lib/xmlgraphics-commons-2.2.jar"/>
-	<classpathentry kind="lib" path="/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/jre/lib/rt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
