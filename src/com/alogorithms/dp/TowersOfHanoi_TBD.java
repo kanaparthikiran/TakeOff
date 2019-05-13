@@ -1,19 +1,20 @@
 /**
  * 
  */
-package com.alogorithms.dynamicprogramming;
+package com.alogorithms.dp;
 
 /**
  * @author Kiran Kanaparthi
  *
  */
-public class AllCombinationsOfValidParentheses_TBD {
+public class TowersOfHanoi_TBD {
+
 
 	/**
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 

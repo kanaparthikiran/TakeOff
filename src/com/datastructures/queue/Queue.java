@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.datastructures.count.queue;
+package com.datastructures.queue;
 
 import java.util.NoSuchElementException;
 
@@ -43,6 +43,7 @@ public class Queue {
 
 		queueClient.printQueueElements();
 		
+		queueClient.remove();
 		queueClient.remove();
 		
 		System.out.println("\n Now the Elements are Removed from the Queue ");

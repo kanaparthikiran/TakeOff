@@ -6,8 +6,15 @@ public class QuestionA {
 			return false;
 		}
 		boolean[] char_set = new boolean[128];
+		
+		char[] lset = new char[128];
+
+		for (int i = 0; i < lset.length; i++) {
+			System.out.print(lset[i]+" ");
+		}
 		for (int i = 0; i < str.length(); i++) {
 			int val = str.charAt(i);
+			System.out.println(" Gayle here is it "+val);
 			if (char_set[val]) return false;
 			char_set[val] = true;
 		}
@@ -19,6 +26,25 @@ public class QuestionA {
 		for (String word : words) {
 			System.out.println(word + ": " + isUniqueChars(word));
 		}
+		System.out.println(" The Unique Characters are " + findAreUnique("aa"));
+	}
+	
+	
+	
+	private static boolean findAreUnique(String test) {
+		if(test!=null && test.length()>0) {
+			char[] elements = test.toCharArray();
+			int[] asciiList = new int[128];
+			for(char element : elements) {
+				asciiList[element]++;	
+			}
+			for(int asciiElement : asciiList) {
+				if(asciiElement>1) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 }

@@ -36,7 +36,7 @@ public class MultiThreadedClient {
 	    }
 	    
 		for(int i=0;i<1;i++) {
-			RHObectPool op = new RHObectPool(i);
+			AppleObectPool op = new AppleObectPool(i);
 			
 			System.out.println("I is started "+i);
 

@@ -98,7 +98,8 @@ public class StringReverse {
 		if(maxValue<=1) {
 			return maxValue;
 		} else {
-			return printFiboRecursive(maxValue-1)+printFiboRecursive(maxValue-2);
+			return printFiboRecursive(maxValue-1)+
+					printFiboRecursive(maxValue-2);
 		}
 	}
 	

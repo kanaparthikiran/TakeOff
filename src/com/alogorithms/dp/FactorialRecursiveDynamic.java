@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.alogorithms.dynamicprogramming;
+package com.alogorithms.dp;
 
 import java.math.BigInteger;
 
@@ -34,8 +34,8 @@ public class FactorialRecursiveDynamic {
 		int[] cacheArray = new int[n+1];
 		int dynamicFactorial = factorialDynamicProgramming(n, cacheArray);
 		System.out.println(" dynamicFactorial "+dynamicFactorial );
-		
-
+		System.out.println(" Recursive factorial is :" + printRecursiveFact(100l,new long[101]));
+		//long[] elem = new long[1];
 	}
 	
 	
@@ -52,6 +52,20 @@ public class FactorialRecursiveDynamic {
 	        }
 	    }
 	 
+	 
+	 
+	 private static long printRecursiveFact(long n,long[] cacheArray) {
+	        if(n<=1) {
+	            return 1;
+	        } else {
+	            System.out.println(" n "+n);
+	            if(cacheArray[(int) n]==0) {
+	                cacheArray[(int) n] = n*printRecursiveFact(n-1,cacheArray);
+	                System.out.println(" cacheArray[n]  calculated as "+cacheArray[(int) n] );
+	            }
+	            return cacheArray[(int) n];
+	        }
+	 }
 	 
 	/**
 	 * 

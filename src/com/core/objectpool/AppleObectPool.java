@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @author kkanaparthi
  *
  */
-public class RHObectPool implements IRHObjectPool {
+public class AppleObectPool implements IAppleObjectPool {
 
 	private int i;
 	
@@ -31,14 +31,14 @@ public class RHObectPool implements IRHObjectPool {
 	/**
 	 * 
 	 */
-	public RHObectPool() {
+	public AppleObectPool() {
 		
 	}
 	
 	/**
 	 * 
 	 */
-	public RHObectPool(int i) {
+	public AppleObectPool(int i) {
 		this.setI(i);
 		System.out.println("Created Object with I  value as "+i);
 	}
@@ -47,7 +47,7 @@ public class RHObectPool implements IRHObjectPool {
 	/**
 	 * 
 	 */
-	public RHObectPool(int i,int totalObjects, Queue<?> linkedBlockingQueue) {
+	public AppleObectPool(int i,int totalObjects, Queue<?> linkedBlockingQueue) {
 		this.i = i ;
 		this.totalObjects= totalObjects;
 		this.linkedBlockingQueue = new LinkedBlockingDeque<>(totalObjects);

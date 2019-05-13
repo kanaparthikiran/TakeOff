@@ -1,17 +1,15 @@
 /**
  * 
  */
-package com.alogorithms.dynamicprogramming;
+package com.alogorithms.dp;
 
 /**
- * @author Kiran Kanaparthi
+ * @author Kiran
  *
  */
-public class MagicIndexOfAnArray_TBD {
-
+public class AllSubsetsOfASetPowerSet_TBD {
 
 	/**
-	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {

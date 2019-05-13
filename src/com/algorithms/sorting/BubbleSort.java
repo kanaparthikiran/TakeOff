@@ -4,6 +4,7 @@
 package com.algorithms.sorting;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,30 +27,51 @@ public class BubbleSort {
 		int[] input = new int[]{3,5,7,2,8,9,1};
 		
 		System.out.println(" Before Sorting the Elements are ");
-		if(input!=null) {
-			for(int inputElemenet : input) {
-				System.out.print(" "+ inputElemenet);
-			}
-		}
+		System.out.println(Arrays.toString(input));
+		Arrays.stream(input).forEachOrdered(System.out::println);
 		input = bubbleSort.bubbleSortElements(input);
-		
 		System.out.println("\n\n\n After Sorting the Elements are ");
-		if(input!=null) {
-			for(int inputElemenet : input) {
-				System.out.print(" "+ inputElemenet);
-			}
-		}
-		String in ="abc";
-		List<String> allPermutations = bubbleSort.
-				printAllPermutations("",in,new ArrayList<String>());
-		
-		System.out.println("\n=====================================\n");
-		if(allPermutations!=null) {
-			allPermutations.forEach(elem->System.out.println("each elem "+elem));
-		}
-
+			Arrays.toString(input);
+		int[] response = bubbleSort(input);
+		System.out.println(Arrays.toString(response));
+		String in ="ab";
+//		List<String> allPermutations = bubbleSort.
+//				printAllPermutations("",in,new ArrayList<String>());
+		bubbleSort.printAllPerm("",in,new ArrayList<String>()).stream().
+			forEach(element->System.out.println(element));
+//		System.out.println("\n=====================================\n");
+//		allPermutations.forEach(elem->System.out.println(" "+elem));
 	}
 
+	
+	private static int[] bubbleSort(int[] elements) {
+		if(elements!=null && elements.length>0) {
+			for(int i=0;i<elements.length-1;i++) {
+				for(int j=0;j<elements.length-i-1;j++) {
+					if(elements[j]>elements[j+1]) {
+						int temp = elements[j];
+						elements[j] = elements[j+1];
+						elements[j+1] = temp;
+					}
+				}
+			}
+		}
+		return elements;
+	}
+	
+	
+	private List<String> printAllPerm(String prefix,String suffix,List<String> allItems) {
+		if(suffix==null || suffix.length()==0) {
+			allItems.add(prefix+suffix);
+		} else {
+			for(int i=0;i<suffix.length();i++) {
+				String print = suffix.substring(0,i)+suffix.substring(i+1);
+				printAllPerm(prefix+suffix.charAt(i), print, allItems);
+			}
+		}
+		return allItems;
+	}
+	
 	
 	private List<String> printAllPermutations(String prefix,String suffix,
 			List<String> allStrings) {
@@ -67,6 +89,7 @@ public class BubbleSort {
 	}
 	
 	
+	
 	/**
 	 * 
 	 * @param input
@@ -76,25 +99,16 @@ public class BubbleSort {
 		if(input!=null) {
 			for(int i=0;i<input.length-1;i++) {
 				for(int j=0;j<input.length-1-i;j++) {
-//					System.out.println("\n input[j] "+ input[j]
-//							+"  input[j+1] "+input[j+1]+"  j "+j);
 					if(input[j]>input[j+1]) {
 						int temp = input[j+1];
 						input[j+1] = input[j];
 						input[j] = temp;
 					}
 				}
-				System.out.println("\n After Each Iteration, the Elements are ");
-
-				if(input!=null) {
-					for(int inputElemenet : input) {
-						System.out.print(" "+ inputElemenet);
-					}
-				}
+				System.out.println("After Each Iteration, the Elements are "+
+						Arrays.toString(input));
 			}
 		}
 		return input;
 	}
-
-
 }

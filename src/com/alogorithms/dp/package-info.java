@@ -5,4 +5,4 @@
  * @author Kiran Kanaparthi
  *
  */
-package com.alogorithms.dynamicprogramming;
+package com.alogorithms.dp;

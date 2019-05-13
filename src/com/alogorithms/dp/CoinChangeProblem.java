@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.alogorithms.dynamicprogramming;
+package com.alogorithms.dp;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

@@ -5,4 +5,4 @@
  * @author kkanaparthi
  *
  */
-package com.datastructures.count.queue;
+package com.datastructures.queue;

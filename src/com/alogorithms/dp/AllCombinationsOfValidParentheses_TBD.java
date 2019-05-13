@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.alogorithms.dynamicprogramming;
+package com.alogorithms.dp;
 
 /**
- * @author Kiran
+ * @author Kiran Kanaparthi
  *
  */
-public class AllSubsetsOfASetPowerSet_TBD {
+public class AllCombinationsOfValidParentheses_TBD {
 
 	/**
 	 * @param args

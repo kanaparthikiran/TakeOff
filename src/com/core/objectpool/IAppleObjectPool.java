@@ -7,7 +7,7 @@ package com.core.objectpool;
  * @author kkanaparthi
  *
  */
-public interface IRHObjectPool {
+public interface IAppleObjectPool {
 	
 	public Object borrowObject();
 	public void returnObject();

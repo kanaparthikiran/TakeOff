@@ -34,7 +34,6 @@ public class FindElementsAppearingMoreThanKTimes {
 			frequencyElements = new char[input.length()];
 			char[] frequencyArray = 
 					buildCharFrequencyArray(input);
-			
 			System.out.println(" The frequencyArray Elements are "
 					+ Arrays.toString(frequencyArray));
 
@@ -47,6 +46,8 @@ public class FindElementsAppearingMoreThanKTimes {
 		}
 		return frequencyElements;
 	}
+	
+	
 	
 	/**
 	 * @param args

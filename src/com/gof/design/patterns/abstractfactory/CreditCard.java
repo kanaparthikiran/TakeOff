@@ -14,7 +14,6 @@ public class CreditCard {
 	 * 
 	 */
 	public CreditCard() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -27,8 +26,6 @@ public class CreditCard {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

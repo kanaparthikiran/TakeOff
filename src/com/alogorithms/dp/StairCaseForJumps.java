@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.alogorithms.dynamicprogramming;
+package com.alogorithms.dp;
 
 /**
  * @author Kiran Kanaparthi
