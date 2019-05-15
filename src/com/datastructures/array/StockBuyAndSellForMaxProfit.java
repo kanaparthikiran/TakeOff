@@ -4,6 +4,8 @@
 package com.datastructures.array;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -12,57 +14,59 @@ import java.util.List;
  * This class finds the Stocks Buy and Sell 
  * Prices for making Maximum Profit.
  * 
+ * Find the pairs of LocalMinima and LocalMaxima
+ * and Return all those pairs at the end.
+ * 
+ * LocalMinima - If the element is less than the next element
+ * LocalMaxima - If the element is more than the next element
+ * 
  *
  */
 public class StockBuyAndSellForMaxProfit {
 
 	
-	/**
-	 * 
-	 * @param a
-	 * @return
-	 */
-	private List<Price> maxBuyAndSellPrices(int a[])  {
-		List<Price> pricesList = new ArrayList<>();
-		if(a!=null && a.length>0) {
-			Price price = new Price();
-			int startIndex = 0;
-			int buyPrice = a[startIndex];
-			while(startIndex<a.length-1) {
-				if(a[startIndex]<a[startIndex+1]) {
-					startIndex++;
-				} else {
-					System.out.println(" startIndex after the loop "+startIndex
-							+"  a.length-1 "+(a.length-1));
-					price.setBuyPrice(buyPrice);
-					price.setSellPrice(a[startIndex]);
-					pricesList.add(price);
-					
-					startIndex++;
-					
-					System.out.println(" New Start index after the "
-							+ " element is added "+startIndex);
-				}
-				
-			}
+	private static Collection<Price> buyAndSell(int[] prices) {
+		List<Price> allItems = new ArrayList<>();
+		
+		if(prices==null || prices.length==0) {
+			return Collections.unmodifiableCollection(allItems);
 		}
-		return pricesList;
+//		int localMinima = prices[0];
+		int n  = prices.length;
+//		int localMaxima = prices[n-1];
+		int count = 0;
+		int i = 0;
+		while(i<n-1) {
+			while((i<n-1) && prices[i]>=prices[i+1]) {
+				i++;
+			}
+			Price price = new Price();
+			price.buyPrice = prices[i++];
+			if(i==n-1) {
+				break;
+			}
+			while((i<n) && prices[i]>=prices[i-1]) {
+				i++;
+			}
+			price.sellPrice = prices[i-1];
+			allItems.add(price);
+			count++;
+		}
+		System.out.println(" All Items Size "+ allItems+" count "+count);
+		return allItems;
 	}
+	
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		StockBuyAndSellForMaxProfit stockBuyAndSellForMaxProfit = 
-				new StockBuyAndSellForMaxProfit();
 		int[] input = new int[]{100,180,260,310,40,535,695};
-		List<Price> listOfStocks =
-				stockBuyAndSellForMaxProfit.maxBuyAndSellPrices(input);
-		if(listOfStocks!=null && listOfStocks.size()>0) {
-			listOfStocks.forEach(elem->System.out.println (" "+elem));
+		Collection<Price> listOfStocks =
+				buyAndSell(null);
+		System.out.println(" Unmodifyable collection "+listOfStocks);
+		listOfStocks.stream().forEach(elem->System.out.println (" "+elem));
 		}
-		
-	}
-
 }
 
 /**
@@ -72,8 +76,16 @@ public class StockBuyAndSellForMaxProfit {
  */
 class Price {
 	
-	private int buyPrice;
-	private int sellPrice;
+	public Price() {
+		super();
+	}
+	public Price(int buyPrice, int sellPrice) {
+		super();
+		this.buyPrice = buyPrice;
+		this.sellPrice = sellPrice;
+	}
+	 int buyPrice;
+	int sellPrice;
 	/**
 	 * @return the buyPrice
 	 */

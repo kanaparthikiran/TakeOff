@@ -15,13 +15,14 @@ public class FindElementsAppearingMoreThanKTimes {
 	 * 
 	 * @return
 	 */
-	private char[] buildCharFrequencyArray(String input) {
+	private char[] buildCharFrequencyArray(char[] input) {
 		char [] frequencyArray = new char[26];
-		if(input!=null && input.length()>0) {
-			for(int i=0;i<input.length();i++) {
-				frequencyArray[input.charAt(i)-'a']++;
+		if(input!=null && input.length>0) {
+			for(char elem : input) {
+				frequencyArray[elem-'a']++;
 			}
 		}
+		System.out.println(" frequencyArray "+Arrays.toString(frequencyArray));
 		return frequencyArray;
 	}
 	/**
@@ -32,8 +33,9 @@ public class FindElementsAppearingMoreThanKTimes {
 		char[] frequencyElements = null;
 		if(input!=null && input.length()>0) {
 			frequencyElements = new char[input.length()];
+			char[] inElements = input.toCharArray();
 			char[] frequencyArray = 
-					buildCharFrequencyArray(input);
+					buildCharFrequencyArray(inElements);
 			System.out.println(" The frequencyArray Elements are "
 					+ Arrays.toString(frequencyArray));
 
@@ -48,19 +50,35 @@ public class FindElementsAppearingMoreThanKTimes {
 	}
 	
 	
+	private char[] findElemWithFrequency(String input,int frequency) {
+		char[] results = new char[1];
+		char[] elements = input.toCharArray();
+		char[] countElements = new char[26];
+		for(char elem :elements) {
+//			System.out.println(" index  "+ (elem-'a'));
+			countElements[elem-'a']++;
+		}
+		System.out.println(" Arrays values "+ Arrays.toString(countElements));
+		for(char elem :elements) {
+			if(countElements[elem-'a']==frequency) {
+				results[0] = elem;
+			}
+		}
+		return results;
+	}
+	
 	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		FindElementsAppearingMoreThanKTimes  findElementsAppearingMoreThanKTimes =
 				new FindElementsAppearingMoreThanKTimes();
 		String input = "test";
 		int n = input.length();
 		int k = 2;
 		char[] charElems =
-				findElementsAppearingMoreThanKTimes.findElementsWithGivenOccurances(input,n/k);
+				findElementsAppearingMoreThanKTimes.findElemWithFrequency(input,n/k);
 		System.out.println(" The Array Elements are "+ Arrays.toString(charElems));
 	}
 

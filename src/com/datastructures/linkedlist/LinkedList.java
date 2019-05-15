@@ -119,7 +119,8 @@ public class LinkedList {
 			return;
 		} else {
 			while(currentNode!=null) {
-				System.out.println(" currentNode!=null Started currentNode data value "+currentNode.getData());
+				System.out.println(" currentNode!=null Started currentNode data value "+
+						currentNode.getData());
 				Node runnerNode = currentNode;
 				
 				while(runnerNode.getNextNode()!=null) {
