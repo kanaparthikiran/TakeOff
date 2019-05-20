@@ -35,16 +35,15 @@ public class PeakElement {
 	 */
 	private int findPeakElement(int input[],int low,int high) {
 		int middle = (low+high)/2;
-		int peakElement = -1;
+//		int peakElement = -1;
 		if(middle==0 || input[middle]>=input[middle-1] &&
 				middle==input.length-1 || input[middle]>=input[middle+1]) {
 			return input[middle];
 		} else if(middle>0 && input[middle]<input[middle-1])  {
-			peakElement = findPeakElement(input, low, middle-1);
+			return findPeakElement(input, low, middle-1);
 		} else {
-			peakElement = findPeakElement(input, middle+1, high);
+			return findPeakElement(input, middle+1, high);
 		} 
-		return peakElement;
 	}
 	
 	

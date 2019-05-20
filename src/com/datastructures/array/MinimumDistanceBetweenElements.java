@@ -61,6 +61,29 @@ public class MinimumDistanceBetweenElements {
 		return minimumDistance;
 	}
 	
+	private static int minDistance(int [] data, 
+			int elementOne, int elementTwo) {
+		int result = 0;
+		int prevElement = 0;
+		int prevIndex = 0;
+		int i=0 ;
+		for(;i<data.length;i++) {
+			if(data[i]==elementOne || data[i]==elementTwo) {
+				prevElement = data[i];
+				prevIndex = i;
+				break;
+			}
+		}
+		for(i=prevIndex;i<data.length;i++) {
+			if((data[i]==elementOne||data[i]==elementTwo) &&
+					data[i]!=prevElement) {
+				result = i-prevIndex;
+				break;
+			}
+		}
+		return result;
+	}
+	
 	
 	/**
 	 * @param args
@@ -68,12 +91,13 @@ public class MinimumDistanceBetweenElements {
 	public static void main(String[] args) {
 		MinimumDistanceBetweenElements minimumDistanceBetweenArrayElements = 
 				new MinimumDistanceBetweenElements();
-		int[] array = new int[]{2,3,4,5,6,7,3,4,8,9};
+		int[] array = new int[]{2,3,4,5,6,7,3,4,7,8,9};
 		int minDistance =
 				minimumDistanceBetweenArrayElements.
 				getMinimumDistanceBetween(array, 3, 4);
 		System.out.println(" Minimum distance between"
 				+ " two numbers is "+ minDistance);
+		System.out.println(" The min distance between numbers is "+ minDistance(array, 5,7));
 	}
 
 }

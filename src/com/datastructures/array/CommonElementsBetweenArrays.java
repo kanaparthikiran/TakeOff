@@ -24,6 +24,16 @@ public class CommonElementsBetweenArrays {
 		}
 	}
 	
+	
+	private static int square(int num)
+	{
+		int result = 0;
+		for(int i=0;i<num;i++) {
+			result+=num;
+		}
+		return result;
+	}
+	
 	/**
 	 * @param args
 	 */
@@ -33,6 +43,7 @@ public class CommonElementsBetweenArrays {
 		int []a = new int[]{1,2,3,4,10,6};
 		int []b = new int[]{5,2,3,6};
 		commonElementsBetweenArrays.printCommonElements(a, b);
+		System.out.println(" Square of the number is "+ square(10));
 	}
 
 }

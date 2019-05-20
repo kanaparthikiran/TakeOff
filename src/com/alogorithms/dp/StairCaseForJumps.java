@@ -63,7 +63,7 @@ public class StairCaseForJumps {
 		StairCaseForJumps stairCaseForJumps =
 				new StairCaseForJumps();
 		int totalJumpsPossible = stairCaseForJumps.
-				getAllJumpsForStairCaseRecursive(7);
+				getAllJumpsForStairCaseRecursive(3);
 		System.out.println(" Total Jumps Possible "+totalJumpsPossible);
 		int totalJumpsForMemoizaton = 
 				stairCaseForJumps.getAllJumpsForStaircaseMemoization(7, new int[101]);

@@ -12,6 +12,9 @@ public class Node {
 	private int data;
 	private Node leftNode;
 	private Node rightNode;
+	public Node(int data) {
+		this.data = data;
+	}
 	/**
 	 * @return the data
 	 */

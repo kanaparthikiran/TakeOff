@@ -3,6 +3,9 @@
  */
 package com.datastructures.array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author kkanaparthi
  *
@@ -49,9 +52,31 @@ public class TopNNumbers {
 	            }
 	        }
 	      //  sc.close();
-	        System.out.print(str);
+	        System.out.println(str);
+	        List<String> data = permutations("","abc",new ArrayList<>());
+	        data.stream().forEach(element->System.out.println(element));
 	}
 	
+	
+	private static List<String> permutations(String prefix,String suffix,
+			List<String> allPermutations) {
+		if(suffix==null || suffix.length()==0) {
+			allPermutations.add(prefix+suffix);
+		} else {
+			for(int i=0;i<suffix.length();i++) {
+				String update = suffix.substring(0,i)+suffix.substring(i+1);
+				permutations(prefix+suffix.charAt(i), update, allPermutations);
+				
+//				String element = suffix.substring(0, i)+
+//						suffix.substring(i+1,suffix.length());
+//				getAllPermutations(input,
+//						prefix+suffix.charAt(i),
+//						element, allPermutations);
+				
+			}
+		}
+		return allPermutations;
+	}
 	/**
 	 * 
 	 * @param input

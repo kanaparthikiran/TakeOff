@@ -30,20 +30,20 @@ public class RotateMatrix {
 		for(int layer=0;layer<elements.length/2;layer++) {
 			int first = layer;
 			int last = elements.length-1-layer;
-			System.out.println(" first  "+ first+" last "+last);
+//			System.out.println(" first  "+ first+" last "+last);
 			for(int i=first;i<last;i++) {
 				int offset = i-first;
 				//save top
 				int top = elements[first][i];
 				
-				System.out.println(" offset "+offset+" top "+top);
+				//System.out.println(" offset "+offset+" top "+top);
 
 				//left to top
 				elements[first][i] = elements[last-offset][first];
 				
-				System.out.println(" elements[last-offset][first] "+
-				elements[last-offset][first]+"  elements[last][last-offset] "
-						+ elements[last][last-offset]);
+//				System.out.println(" elements[last-offset][first] "+
+//				elements[last-offset][first]+"  elements[last][last-offset] "
+//						+ elements[last][last-offset]);
 
 				//bottom to left
 				 elements[last-offset][first] = elements[last][last-offset];

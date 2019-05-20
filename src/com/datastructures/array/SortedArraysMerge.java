@@ -92,7 +92,8 @@ public class SortedArraysMerge {
 		int bigArrayIndex = 5;
 		int smallArrayIndex = 3;
 		int[] mergedArray = 
-				sortedArraysMerge.mergeSortedArrays(elementsBig, elementsSmall,bigArrayIndex,smallArrayIndex);
+				sortedArraysMerge.mergeSortedArrays(elementsBig, 
+						elementsSmall,bigArrayIndex,smallArrayIndex);
 		
 		if(mergedArray!=null && mergedArray.length>0) {
 			for(int element : mergedArray) {

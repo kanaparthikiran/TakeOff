@@ -18,8 +18,35 @@ public class SearchSortedRotatedArray {
 				search(elements, 0, elements.length-1, 8);
 		System.out.println(" Searched Element index is "+
 				searchedElementIndex);
+		int element  = searchSorted(elements, 0, elements.length-1, 8);
+		System.out.println(" The element is "+ element);
 	}
 
+	
+	private static int searchSorted(int[] elements, int start, int end , int search) {
+		if(elements!=null) {
+			int middle = start + (end - start)/2;
+			if(elements[middle]==search) {
+				return middle;
+			}
+			if(elements[start]<elements[middle]) {
+				if(elements[start]<=search && search<=elements[middle]) {
+					return searchSorted(elements, start, middle-1, search);
+				} else {
+					return searchSorted(elements, middle+1, end, search);
+				}
+			} else {
+				if(search>=elements[middle] && search<=elements[end]) {
+					return searchSorted(elements, middle+1, end, search);
+				} else {
+					return searchSorted(elements, start, middle-1, search);
+				}
+			}
+		}
+		return -1;
+		
+	}
+	   
 	/**
 	 * 
 	 * @param elements
