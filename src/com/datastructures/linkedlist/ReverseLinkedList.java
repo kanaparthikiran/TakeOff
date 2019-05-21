@@ -30,10 +30,8 @@ public class ReverseLinkedList {
 		ll.printElements();
 		PriorityQueue pq = null;
 	}
-	
-	
-
 }
+
 
 
 class MyLinkedList {
