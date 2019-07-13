@@ -63,7 +63,7 @@ public class StockBuyAndSellForMaxProfit {
 	public static void main(String[] args) {
 		int[] input = new int[]{100,180,260,310,40,535,695};
 		Collection<Price> listOfStocks =
-				buyAndSell(null);
+				buyAndSell(input);
 		System.out.println(" Unmodifyable collection "+listOfStocks);
 		listOfStocks.stream().forEach(elem->System.out.println (" "+elem));
 		}

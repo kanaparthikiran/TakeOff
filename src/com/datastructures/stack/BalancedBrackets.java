@@ -3,6 +3,7 @@
  */
 package com.datastructures.stack;
 
+import java.util.BitSet;
 
 /**
  * @author kkanaparthi
@@ -31,6 +32,8 @@ public class BalancedBrackets {
 		
 		System.out.println(" isBalanced  Value is "+isBalanced);
 	//	stack.printNodes();
+		int missingNumber = stack.findMissingNumber(new int[] {1,2,4,5});
+		System.out.println(" Missing number from the series "+ missingNumber);
 
 	}
 	
@@ -138,6 +141,24 @@ public class BalancedBrackets {
 		}
 	}
 	
+	
+	static int findMissingNumber(int[] numbers) {
+		BitSet bs = new BitSet(5);
+		int result = -1;
+		for(int i=0;i<numbers.length;i++) {
+			//System.out.println(" BS value "+ bs.get(i));
+			bs.set(numbers[i]);
+		}
+		for(int i=0;i<numbers.length;i++) {
+			int a = numbers[i];
+			boolean b  = bs.get(i+1);
+			if(!bs.get(i+1)) {
+				System.out.println(" Missing number is "+ numbers[i]);
+				return numbers[i];
+			}
+		}
+		return result;
+	}
 	/**
 	 * 
 	 * @param inString

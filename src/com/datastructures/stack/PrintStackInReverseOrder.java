@@ -21,11 +21,38 @@ public class PrintStackInReverseOrder {
 		stack.push(3);
 		System.out.println(" Stack elements "+stack);
 		printSameOrder(stack);
-		reverseStack(stack);
+		stackSort(stack);
 		System.out.println(" Stack elements after reverse "+stack);
 
 
 	}
+	
+	
+	private static void stackSort(Stack<Integer> stack) {
+		if(stack==null||stack.isEmpty()) {
+			return;
+		}
+		Integer element = stack.pop();
+		stackSort(stack);
+		sortedInsertAtBot(stack,element);
+	}
+	
+	private static void sortedInsertAtBot(Stack<Integer> stack,Integer element) {
+		if(stack.isEmpty() || stack.peek()<element) {
+			stack.push(element);
+			return;
+		} else {
+			Integer poppedElement = stack.pop();
+			sortedInsertAtBot(stack, element);
+			stack.push(poppedElement);	
+		}
+		Math.sqrt(25);
+
+	}
+	
+
+	
+	
 	
 	private static void printSameOrder(Stack<Integer> stack) {
 		if(stack.isEmpty()) {

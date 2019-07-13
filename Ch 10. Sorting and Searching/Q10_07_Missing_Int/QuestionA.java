@@ -1,5 +1,6 @@
 package Q10_07_Missing_Int;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -34,6 +35,8 @@ public class QuestionA {
 
 	public static void main(String[] args)  throws IOException {
 		findOpenNumber();
+		
+		Scanner sc = new Scanner(new FileInputStream(""));
 	}
 
 }

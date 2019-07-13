@@ -35,7 +35,8 @@ public class BinarySearchTree {
 			return;
 		} else {
 			inOrderTraversal(rootNodeParam.getLeftNode());
-			System.out.print(rootNodeParam.getData()+"  rootNode.getLeftNode() "+rootNode.getLeftNode());
+			System.out.print(rootNodeParam.getData()
+					+"  rootNode.getLeftNode() "+rootNode.getLeftNode());
 			inOrderTraversal(rootNodeParam.getRightNode());
 		}
 	}

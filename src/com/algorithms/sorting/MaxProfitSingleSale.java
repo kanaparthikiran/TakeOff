@@ -20,7 +20,7 @@ public class MaxProfitSingleSale {
 	 */
 	public static void main(String[] args) {
 		int[] prices = new int[] {30,20,10,25,24,29,28};
-		int maxProfit = maxProfit(prices);
+		int maxProfit = getMaxProfit(prices);
 		//int maxProfitLatest  = calculateMaxProfit(prices);
 		int[] one = new int[] {1, 2, 4, 5, 6};
 		int[] two = new int[] {2, 3, 5, 7};
@@ -45,7 +45,8 @@ public class MaxProfitSingleSale {
 		queue.add(4);
 		System.out.println(" Original Queue is "+queue);
 
-		reverseQueue(queue);
+		revQ(queue);
+		//reverseQueue(queue);
 		System.out.println(" Reversed Queue is "+queue);
 		
 		Stack<Integer> stack = new Stack<>();
@@ -55,7 +56,8 @@ public class MaxProfitSingleSale {
 		stack.push(8);
 		System.out.println(" Original Stack is "+stack);
 
-		reverseStack(stack);
+		//reverseStack(stack);
+		revStack(stack);
 		System.out.println(" Reversed Stack is "+stack);
 
 	}
@@ -151,6 +153,35 @@ public class MaxProfitSingleSale {
 		
 	}
 
+	
+	private static void revQ(Queue<Integer> queue) {
+		if(queue==null||queue.isEmpty()) {
+			return;
+		}
+		Integer element = queue.remove();
+		revQ(queue);
+		queue.add(element);
+	}
+	
+	private static void revStack(Stack<Integer> stack) {
+		if(stack==null||stack.isEmpty()) {
+			return;
+		}
+		Integer element = stack.pop();
+		revStack(stack);
+		insertElemAtBottom(stack,element);
+	}
+	
+	private static void insertElemAtBottom(Stack<Integer> stack,Integer element) {
+		if(stack.isEmpty()) {
+			stack.push(element);
+		} else {
+			Integer poppedElement = stack.pop();
+			insertElemAtBottom(stack, element);
+			stack.push(poppedElement);
+		}
+	}
+	
 	/**
 	 * 
 	 * @param one
@@ -229,4 +260,22 @@ public class MaxProfitSingleSale {
 	}
 	
 	
+	private static int getMaxProfit(int[] data) {
+		int maxProfit = 0;
+		int minValue = 0;
+		if(data==null||data.length<=1) {
+			return 0;
+		}
+		maxProfit = data[1]>data[0]?data[1]-data[0]:0;
+		minValue = data[0];
+		for(int i=1;i<data.length;i++) {
+			if(maxProfit<data[i]-minValue) {
+				maxProfit = data[i]-minValue;
+			}
+			if(data[i]<minValue) {
+				minValue = data[i];
+			}
+		}
+		return maxProfit;
+	}
 }

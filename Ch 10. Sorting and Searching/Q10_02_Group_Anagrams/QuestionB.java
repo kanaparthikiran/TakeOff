@@ -2,6 +2,7 @@ package Q10_02_Group_Anagrams;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 
 import CtCILibrary.AssortedMethods;
 import CtCILibrary.HashMapList;
@@ -28,6 +29,7 @@ public class QuestionB {
 	}
 	
 	public static String sortChars(String s) {
+		BitSet bs = new BitSet();
 		char[] content = s.toCharArray();
 		Arrays.sort(content);
 		return new String(content);

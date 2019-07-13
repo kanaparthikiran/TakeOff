@@ -47,20 +47,81 @@ public class FirstNonRepeatedCharacter {
 	}
 	
 	
+	 public static boolean canPermutePalindrome(String s) {
+	        if(s==null||s.length()<2) {
+	            return true;
+	        }
+	        int[] isPalindrome = new int[128];
+	        for(int i=0;i<s.length();i++) {
+	            isPalindrome[s.charAt(i)]++;
+	        }
+	        int countOdd = 0;
+	        for(int countValue : isPalindrome) {
+	        	if(countValue%2==1) {
+	        		countOdd++;
+	        	}
+	        }
+	        System.out.println(" countOdd "+countOdd);
+	        return countOdd<=1;
+	    }
+	
 	
 	public static void main(String a[]) {
 		FirstNonRepeatedCharacter firstNonRepeatedCharacter = 
 				new FirstNonRepeatedCharacter();
-		char c = firstNonRepeatedCharacter.firstNonRepeatedChar("abb");
+		char c = firstNonRepeatedCharacter.
+				firstNonRepeatedChar
+				("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		System.out.println(" First Non Repeated Character "+ c);
 		
 		char nonRepPractice = firstNotRepeatingCharacter("abacc");
 		
 		System.out.println(" nonRepPractice "+ nonRepPractice);
-
+		boolean canPermutate = canPermutePalindrome("abaaa");
+		System.out.println(" Can permutate "+ canPermutate);
+		String longestPalindrome = longestPalindromeSubString("abb");
+		System.out.println(" longestPalindrome "+longestPalindrome);
+		int reverse = reverseInteger(-23213424);
+		System.out.println(" Reverse Integer "+reverse);
 	}
 
 
+	private static int reverseInteger(int number) {
+		int reverse = 0;
+		while(number!=0) {
+			int temp = reverse*10+(number%10);
+			if(temp/10!=reverse) {
+				return 0;
+			}
+			reverse = temp;
+			number /= 10;
+		}
+		return reverse;
+	}
+	private static String longestPalindromeSubString(String data) {
+		String respone = null;
+		if(data==null||data.length()<2) {
+			return respone;
+		}
+		int length = data.length();
+		int left = 0;
+		int right = 0;
+		boolean[][] isPalindrome = new boolean[length][length];
+		for(int j=1;j<length;j++) {
+			for(int i=0;i<j;i++) {
+				boolean isInnerPalindrome = isPalindrome[i+1][j-1]||j-i<=2;
+				isPalindrome[i][j] = true;
+				if(isInnerPalindrome && data.charAt(i)==data.charAt(j)) {
+					if(j-i>right-left) {
+						right = j;
+						left = i;
+					}
+				}
+			}
+		}
+		return data.substring(left,right+1);
+	}
+	
 	/**
 	 * 
 	 * @param s

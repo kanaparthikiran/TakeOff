@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Stack;
 
+import com.datastructures.stack.ReverseStackRecursion;
+
 /**
  * @author kkanaparthi
  *
@@ -52,6 +54,24 @@ public class FactorialTrailingZeros {
 //		
 //		
 //		printAllFibo(40);
+		
+		Stack<String> elements = new Stack<>();
+		elements.push("a");
+		elements.push("b");
+		elements.push("c");
+		System.out.println("Stack elements before reversal "+elements);
+		reverseStack(elements);
+		System.out.println("Stack elements after reversal "+elements);
+
+		Queue<Integer> queue = new LinkedList<>();
+		queue.add(1);
+		queue.add(2);
+		queue.add(3);
+
+		System.out.println(" Queue before reverse "+queue);
+		reverseGivenQueue(queue);
+		System.out.println(" Queue after reverse "+queue);
+		
 		List<String> letterCombinations =
 				phoneLetterCombinations("27753");
 		letterCombinations.stream().forEach(element->System.out.println(element));
@@ -114,6 +134,14 @@ public class FactorialTrailingZeros {
 		}
 	}
 
+	private static void reverseGivenQueue(Queue<Integer> queue) {
+		if(queue==null||queue.isEmpty()) {
+			return;
+		}
+		Integer element = queue.remove();
+		reverseGivenQueue(queue);
+		queue.add(element);
+	}
 	
 	private static int fiboDynamic(int n, int[] memo) {
 		///System.out.print(" 0 1 ");
@@ -201,6 +229,26 @@ public class FactorialTrailingZeros {
 		return count;
 	}
 
+	
+	private static void reverseStack(Stack<String> stack) {
+		if(stack==null||stack.isEmpty()) {
+			return;
+		}
+		String element = stack.pop();
+		reverseStack(stack);
+		insertElementInBottom(stack,element);
+	}
+	
+	private static void insertElementInBottom(Stack<String>stack, String element) {
+		if(stack==null||stack.isEmpty()) {
+			stack.push(element);
+		} else {
+			String elementPopped = stack.pop();
+			insertElementInBottom(stack, element);
+			stack.push(elementPopped);
+		}
+	}
+	
 	
 	private static void reverseQueue(Queue<Integer> queue) {
 			if(queue==null||queue.isEmpty()) {
