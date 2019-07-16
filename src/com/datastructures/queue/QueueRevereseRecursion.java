@@ -22,7 +22,11 @@ public class QueueRevereseRecursion {
 		queue.add(6);
 		queue.add(7);
 		System.out.println("Queue Before Reverse "+queue);
-		reverseQueueIt(queue);
+		
+		//reverseQueueIt(queue);
+		
+		reverseQueueP(queue);
+		
 		//reverse(queue);
 		System.out.println(" Queue After Reverse "+queue);
 		
@@ -36,7 +40,8 @@ public class QueueRevereseRecursion {
 		stackReverse(stack);
 		System.out.println("Stack After Reverse "+stack);
 
-		StackUsingQueue stackUsingQueue = new StackUsingQueue(new LinkedList<Integer>(),new LinkedList<Integer>());
+		StackUsingQueue stackUsingQueue = new StackUsingQueue
+				(new LinkedList<Integer>(),new LinkedList<Integer>());
 		
 		stackUsingQueue.push(1);
 		stackUsingQueue.push(2);
@@ -51,6 +56,17 @@ public class QueueRevereseRecursion {
 
 	}
 
+	
+	private static void reverseQueueP(Queue<Integer> queue) {
+		if(queue.isEmpty()) {
+			return;
+		} else {
+			int element = queue.poll();
+			reverseQueueTest(queue);
+			queue.add(element);
+		}
+	}
+	
 	/**
 	 * 
 	 * @param queue

@@ -27,6 +27,25 @@ public class ReverseAnInteger {
 		System.out.println(" The Integer Max is "+ Integer.MAX_VALUE);
 		int reverse = reverseAnInteger.reverseInteger(-10);
 		System.out.println(" The reverse of the Input Integer is "+ reverse);
+		
+		int response = 
+				revInteger(15);
+		System.out.println(" Response of the reverse is "+response);
+	}
+
+	/**
+	 * 
+	 * @param input
+	 * @return
+	 */
+	private static int revInteger(int input) {
+		int output = 0;
+		while(input>0) {
+			int remainder = input%10;
+			output = output*10+ remainder;
+			input /= 10;
+		}
+		return output;
 	}
 
 	/**

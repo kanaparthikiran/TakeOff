@@ -46,6 +46,23 @@ public class PermutationsOfAString {
 	return allPermutations;	
 	}
 	
+	
+	private static List<String> getAllPermutationsOf(String data,String prefix,String suffix,List<String> results) {
+		if(data!=null) {
+			if(suffix!=null && suffix.length()==0) {
+				results.add(prefix+suffix);
+			} else {
+				for(int i=0;i<suffix.length();i++) {
+					String suffixElement = suffix.substring(0,i)+suffix.substring(i+1);
+					getAllPermutationsOf(data,prefix+suffix.charAt(i),
+							suffixElement,results);
+				}
+			}
+		}
+		return results;
+	}
+	
+	
 	/**
 	 * 
 	 * @param input
@@ -145,15 +162,16 @@ public class PermutationsOfAString {
 	public static void main(String a[]) {
 		PermutationsOfAString permutationsOfAString  =
 				new PermutationsOfAString();
-		String input  ="kanaparthi";
+		String input  ="abc";
 		
 		int gcdOfNumbers =
 				permutationsOfAString.gcd(10, 15);
 		System.out.println(" gcd of numbers is "+gcdOfNumbers);
 		
 		List<String> allPermutations =
-				permutationsOfAString.getAllPermutations(input, "", 
+				permutationsOfAString.getAllPermutationsOf(input, "", 
 						input, new ArrayList<String>());
+		allPermutations.forEach(element->System.out.println(element));
 //		if(allPermutations!=null && allPermutations.size()>0) {
 //			allPermutations.forEach(element->System.out.println(element+" "));
 //		}

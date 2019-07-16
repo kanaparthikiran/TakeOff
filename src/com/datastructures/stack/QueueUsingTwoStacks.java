@@ -12,6 +12,7 @@ public class QueueUsingTwoStacks {
 
 	private Stack stackNewest;
 	private Stack stackOldest;
+	java.util.Stack a;
 	
 	/**
 	 * Constructor for Initializing the two Stacks for
@@ -46,7 +47,7 @@ public class QueueUsingTwoStacks {
 	public void remove() {
 		if(stackOldest!=null && stackNewest!=null) {
 			while(!stackNewest.isEmptyStack()) {
-				stackOldest.push(stackOldest.pop().getData());
+				stackOldest.push(stackNewest.pop().getData());
 			}
 			Node nodeToRemove = stackNewest.pop();
 			System.out.println(" The Node to remove is "+ nodeToRemove.getData());
@@ -88,7 +89,8 @@ public class QueueUsingTwoStacks {
 	public static void main(String[] args) {
 		Stack oldestStack = new Stack();
 		Stack newestStack = new Stack();
-		QueueUsingTwoStacks queueUsingTwoStacks = new QueueUsingTwoStacks(oldestStack,newestStack);
+		QueueUsingTwoStacks queueUsingTwoStacks = 
+				new QueueUsingTwoStacks(oldestStack,newestStack);
 		queueUsingTwoStacks.add(3);
 		queueUsingTwoStacks.add(4);
 		queueUsingTwoStacks.add(5);

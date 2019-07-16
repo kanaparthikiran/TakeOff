@@ -20,11 +20,11 @@ public class Queue {
 
 	//firstNode denotes to the headNode at the front of the queue
 	//In case of removal this firstNode is removed first.
-	private Node firstNode;
+	private StackNode firstNode;
 	
 	//lastNode denotes to the tailNode at the tail end of the queue
 	//In case of additions this node is updated with the latest Node.
-	private Node lastNode;
+	private StackNode lastNode;
 	
 	
 	/**
@@ -59,7 +59,7 @@ public class Queue {
 	 * @param newNode
 	 */
 	public void add(int data) {
-		Node newNode = new Node(data);
+		StackNode newNode = new StackNode(data);
 		if(firstNode==null) {
 			firstNode = newNode;
 			return;
@@ -84,8 +84,8 @@ public class Queue {
 	 */
 	public void printQueueElements() {
 		
-		Node headPointer = firstNode;
-		Node tailPointer = lastNode;
+		StackNode headPointer = firstNode;
+		StackNode tailPointer = lastNode;
 		
 		if(headPointer==null) {
 			throw new NoSuchElementException();
@@ -130,13 +130,13 @@ public class Queue {
  * @author kkanaparthi
  *
  */
-class Node {
+class StackNode {
 	
 	private int data;
-	private Node nextNode;
+	private StackNode nextNode;
 	
 	
-	Node(int data) {
+	StackNode(int data) {
 		this.data = data;
 	}
 	
@@ -155,13 +155,13 @@ class Node {
 	/**
 	 * @return the nextNode
 	 */
-	public Node getNextNode() {
+	public StackNode getNextNode() {
 		return nextNode;
 	}
 	/**
 	 * @param pNextNode the nextNode to set
 	 */
-	public void setNextNode(Node pNextNode) {
+	public void setNextNode(StackNode pNextNode) {
 		nextNode = pNextNode;
 	}
 	

@@ -3,6 +3,7 @@
  */
 package com.algorithms.factorial;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,8 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Stack;
-
-import com.datastructures.stack.ReverseStackRecursion;
 
 /**
  * @author kkanaparthi
@@ -75,8 +74,102 @@ public class FactorialTrailingZeros {
 		List<String> letterCombinations =
 				phoneLetterCombinations("27753");
 		letterCombinations.stream().forEach(element->System.out.println(element));
+		
+		System.out.println("Factorial Result is "+factorial(new BigInteger("625")));
+		
+		System.out.println("Trailing Zeroes are "+trailingZeroes(625));
+
+		Queue<Integer> queueTest = new LinkedList<>();
+		queueTest.add(1);
+		queueTest.add(2);
+		queueTest.add(3);
+		
+		System.out.println("Before Reverse of Queue "+queueTest);
+
+		revQueue(queueTest);
+		
+		System.out.println("After Reverse of Queue "+queueTest);
+		
+		Stack<Integer> stack = new Stack<>();
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		stack.push(4);
+		System.out.println("Before Reverse Stack is "+stack);
+
+		
+		reverseStackTest(stack);
+		
+		System.out.println("Reverse Stack is "+stack);
+
 	}
 	
+	
+	private static void reverseStackTest(Stack<Integer> stack) {
+		if(stack==null||stack.isEmpty()) {
+			return;
+		} else {
+			int element = stack.pop();
+			reverseStackTest(stack);
+			reverseStackTestHelper(stack,element);
+		}
+	}
+	
+	private static void reverseStackTestHelper(Stack<Integer> stack,int element) {
+		if(stack.isEmpty()) {
+			stack.push(element);
+		} else {
+			int elementPopped = stack.pop();
+			reverseStackTestHelper(stack, element);
+			stack.push(elementPopped);
+		}
+	}
+	
+	
+	private static void revQueue(Queue<Integer> queue) {
+		if(queue==null||queue.isEmpty()) {
+			return;
+		}
+		int element = queue.poll();
+		revQueue(queue);
+		queue.add(element);
+	}
+	 
+	
+//	
+//	private static void reverseStack(Stack<String> stack) {
+//		if(stack==null||stack.isEmpty()) {
+//			return;
+//		}
+//		String element = stack.pop();
+//		reverseStack(stack);
+//		insertElementInBottom(stack,element);
+//	}
+//	
+//	private static void insertElementInBottom
+//		(Stack<String>stack, String element) {
+//		if(stack==null||stack.isEmpty()) {
+//			stack.push(element);
+//		} else {
+//			String elementPopped = stack.pop();
+//			insertElementInBottom(stack, element);
+//			stack.push(elementPopped);
+//		}
+//	}
+//	
+	
+    private static int trailingZeroes(int n) {
+        if(n<=0) {
+            return 0;
+        }
+        int total = 0;
+        for(int i = 5; n/i>0;) {
+            total += n/i;
+            n = n/i;
+        }
+        return total;
+    }
+    
 	private static List<String> dictionary = Arrays.asList(new String[]{"apple"});
 	private static List<String> phoneLetterCombinations(String digits) {
 		List<String> result = new ArrayList<>();
@@ -121,6 +214,14 @@ public class FactorialTrailingZeros {
 		return phoneData;
 	}
 	
+	
+	private static BigInteger factorial(BigInteger n) {
+		if(n.intValue()<=1) {
+			return new BigInteger("1");
+		} else {
+			return n.multiply(factorial(n.subtract(new BigInteger("1"))));
+		}
+	}
 	
 	private static void printAllFibo(int n) {
 		int a =0;
@@ -239,7 +340,8 @@ public class FactorialTrailingZeros {
 		insertElementInBottom(stack,element);
 	}
 	
-	private static void insertElementInBottom(Stack<String>stack, String element) {
+	private static void insertElementInBottom
+		(Stack<String>stack, String element) {
 		if(stack==null||stack.isEmpty()) {
 			stack.push(element);
 		} else {

@@ -20,6 +20,8 @@ public class SortStackRecusrsion {
 		stack.push(5);
 		stack.push(1);
 		stack.push(4);
+		stack.push(6);
+
 		System.out.println(" Stack elements before sorting "+stack);
 		sortStack(stack);
 		System.out.println(" Stack elements after sorting "+stack);
