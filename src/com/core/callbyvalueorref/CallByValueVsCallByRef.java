@@ -3,12 +3,46 @@
  */
 package com.core.callbyvalueorref;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author Kiran Kanaparthi
  *
  */
 public class CallByValueVsCallByRef {
 
+	
+	public static void printHierarchy(Map<String,List<String>> data) {
+		if(data==null||data.isEmpty()) {
+			return;
+		}
+		printHierarchy(data);
+//		printHierarchyHelper(data,element,data.get(element));
+	
+	}
+	
+	/**
+	 * 
+	 * @param data
+	 * @param element
+	 * @param list
+	 */
+	public static void printHierarchyHelper(Map<String,List<String>> data,
+			String element,List<String> list) {
+		if(!data.containsKey(element)) {
+			return;
+		} else  {
+			System.out.println(" element "+element);
+			list.forEach(elementA->System.out.println(elementA));
+			printHierarchyHelper(data, element, list);
+		}
+	}
+	
+	
+	
 	int a,b;
 	
 	private int callPrimitives(int a,int b) {
@@ -46,7 +80,8 @@ public class CallByValueVsCallByRef {
 		
 		
 		System.out.println(" Inside Method Values a "+callByValueVsCallByRef.getA()
-			+" b "+callByValueVsCallByRef.getB()+"  callByValueVsCallByRefTwo Values  "+callByValueVsCallByRefTwo.getA()
+			+" b "+callByValueVsCallByRef.getB()+"  callByValueVsCallByRefTwo Values  "
+				+callByValueVsCallByRefTwo.getA()
 			+"  callByValueVsCallByRefTwo  "+callByValueVsCallByRefTwo.getB());
 
 		int c =  callByValueVsCallByRef.getA()+callByValueVsCallByRef.getB();
@@ -71,6 +106,14 @@ public class CallByValueVsCallByRef {
 	 */
 	public static void main(String[] args) {
 		int a=5,b=10;
+		Map<String,List<String>> data = new HashMap<>();
+		data.put("A", Arrays.asList(new String[]{"B","C","D"}));
+		data.put("B", Arrays.asList(new String[]{"E","F"}));
+		data.put("G", Arrays.asList(new String[]{"H,I"}));
+
+  		printHierarchy(data);
+  		
+  		
 		CallByValueVsCallByRef  callByValueVsCallByRef = new CallByValueVsCallByRef();
 //		System.out.println(" Before Values a "+a+" b "+b);
 //		callByValueVsCallByRef.callPrimitives(a, b);

@@ -40,6 +40,12 @@ public class UniquePaths {
 		System.out.println(" Total Paths are  "+totalPaths);
 	}
 
+	/**
+	 * 
+	 * @param m
+	 * @param n
+	 * @return
+	 */
 	private static final int getTotalPaths(int m, int n) {
 		int[][] paths = new int[m][n];
 		

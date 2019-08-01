@@ -47,8 +47,9 @@ public class SimpleThreadPoolClient  extends RecursiveAction  {
 		java.util.Arrays.parallelSort(new int[]{1,2,3,4,5});
 		employees.add(e1);employees.add(e2);employees.add(e3);
 		
-		Map<Department, List<Employee>> byDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
-		
+		Map<Department, List<Employee>> byDept = 
+				employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+		//employees.sort();
 		employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
 		long coountOfAllElem = employees.stream().count();
 		

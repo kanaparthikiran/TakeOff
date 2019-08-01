@@ -66,7 +66,8 @@ public class CoinChangeProblem {
 		CoinChangeProblem coinChangeProblem =
 				new CoinChangeProblem();
 		int n = 250;
-		int[] denominations = new int[] {41,34,46,9,37,32,42,21,7,13,1,24,3,43,2,23,8,45,19,30,29,18,35,11};
+		int[] denominations = new int[] 
+				{41,34,46,9,37,32,42,21,7,13,1,24,3,43,2,23,8,45,19,30,29,18,35,11};
 		int index = 0;
 		Map<String,Long> cacheMap = new ConcurrentHashMap<>();
 		long waysToMakeChange =

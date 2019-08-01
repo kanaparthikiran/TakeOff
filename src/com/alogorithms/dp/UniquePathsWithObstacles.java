@@ -41,7 +41,12 @@ public class UniquePathsWithObstacles {
 		int totalPaths = getTotalPathsWithObstacles(obstacleGrid);
 		System.out.println(" Total Paths With Obstacles are  "+totalPaths);
 	}
-
+	
+	/**
+	 * 
+	 * @param obstacleGrid
+	 * @return
+	 */
 	private static final int getTotalPathsWithObstacles(int[][]obstacleGrid) {
 		int m = obstacleGrid.length;
 		int n = obstacleGrid[0].length;

@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 /**
  * @author kkanaparthi
@@ -19,9 +20,41 @@ public class LetterCombinationsPhoneNumber {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		getAllCombinations("27753").stream().forEach
+		getAllCombinations("27753").stream().sorted().forEach
 			(element->System.out.println(element));
 		
+		Stack<Integer> stack = new Stack<>();
+		stack.push(1);
+		stack.push(2);
+		stack.push(4);
+		stack.push(5);
+		stack.push(3);
+		System.out.println("Stack before reverse "+stack);
+		
+		reverseStack(stack);
+		
+		System.out.println("Stack after reverse "+stack);
+
+	}
+	
+	private static void insertAtBottom(Stack<Integer> stack, int element) {
+		if(stack.isEmpty()||element>stack.peek()) {
+			stack.push(element);
+		} else {
+			int elementPop = stack.pop();
+			insertAtBottom(stack,element);
+			stack.push(elementPop);
+		}
+	}
+	
+	private static void reverseStack(Stack<Integer> stack) {
+		if(stack==null||stack.isEmpty()) {
+			return;
+		} else {
+			int element = stack.pop();
+			reverseStack(stack);
+			insertAtBottom(stack, element);			
+		}
 	}
 	
 	private static List<String> wordList = Arrays.asList("development","apple");
@@ -43,8 +76,14 @@ public class LetterCombinationsPhoneNumber {
 			return;
 		}
 		for(Character charElement : phoneData.get(digits.charAt(sb.length()))) {
+			System.out.println(" sb.length() "+sb.length()
+			+" digits.charAt(sb.length()) "+digits.charAt(sb.length())
+			+" phoneData.get(digits.charAt(sb.length())) "+ 
+				String.valueOf(phoneData.get(digits.charAt(sb.length()))));
 			sb.append(charElement);
+			System.out.println(" charElement "+ charElement+" sb "+sb);
 			getPhoneCombinationsHelper(digits, sb, phoneData, results);
+			System.out.println(" sb.length() "+ sb.length()+" sb "+sb);
 			sb.deleteCharAt(sb.length()-1);
 		}
 	}

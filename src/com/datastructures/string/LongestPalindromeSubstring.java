@@ -16,14 +16,15 @@ public class LongestPalindromeSubstring {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String input = "leetcode";
+		String input = "lclc";
 		String response = 
 				getLongestPalindromeSubstring(input);
 		System.out.println(" Response is "+response);
 		int firstUniqueChar = 
 				firstUniqueChar("anorange");
 		System.out.println(" First Unique Chars "+firstUniqueChar);
-		
+		int lpss = getLongestPalindromeSubSequence(input);
+		System.out.println(" LPS length is "+lpss);		
 	}
 
 	
@@ -69,4 +70,36 @@ public class LongestPalindromeSubstring {
 		}
 		return data.substring(left,right+1);
 	}
+	
+	
+	/****
+	 * 
+	 * @param data
+	 * @return
+	 */
+	private static int getLongestPalindromeSubSequence(String data) {
+		if(data==null||data.length()<2) {
+			return 0;
+		}
+		int n = data.length();
+		int[][] palindrome = new int[n][n];
+		//palindromes of size 1
+		for(int i=0;i<n;i++) {
+			palindrome[i][i] = 1;
+		}
+		
+		for(int curr_len=2;curr_len<=n;curr_len++) {
+			for(int i=0;i<n-curr_len+1;i++) {
+				int j = i+curr_len-1;
+				if(data.charAt(i)==data.charAt(j)) {
+					palindrome[i][j] = palindrome[i+1][j-1]+2;
+				} else {
+					palindrome[i][j] = Math.max(palindrome[i+1][j], palindrome[i][j-1]);
+				}
+			}
+		}
+		return palindrome[0][n-1];
+	}
+	
+	
 }
