@@ -3,9 +3,11 @@
  */
 package com.test.scratchpad;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import org.apache.commons.io.output.ThresholdingOutputStream;
 
 /**
  * @author Kiran Kanaparthi
@@ -24,6 +26,40 @@ public class PermutationsOfAString {
 	}
 	
 
+	
+	 public static List<List<Integer>> threeSum(int[] nums) {
+	        if(nums==null || nums.length<3) {
+	            return new ArrayList<>();
+	        }
+	        List<List<Integer>> allSets = new ArrayList<>();
+	        Arrays.sort(nums);
+	        for(int i=0;i<nums.length-1;i++) {
+	            if(i>0 && nums[i]==nums[i-1]) {
+	                continue;
+	            }
+	            int left = i+1;
+	            int right = nums.length-1;
+	            int x = nums[i];
+	            while(left<right) {
+	                int sum = nums[left]+nums[right]+x;
+	                if(sum==0) {
+	                    List<Integer> innerData = new ArrayList<>();
+	                    innerData.add(x);
+	                    innerData.add(nums[left]);
+	                    innerData.add(nums[right]);
+	                    allSets.add(innerData);
+	System.out.println(" i "+i+" x "+x+" nums[left] "+nums[left]+" nums[right] "+ nums[right]+"left  "+left+"right "+right);
+	                    left++;
+	                    right--;
+	                } else if(sum<0) {
+	                    left++;
+	                } else {
+	                    right--;
+	                }
+	            }
+	        }
+	        return allSets;
+	    }
 	
 	/**
 	 * 
@@ -164,37 +200,40 @@ public class PermutationsOfAString {
 				new PermutationsOfAString();
 		String input  ="abc";
 		
-		int gcdOfNumbers =
-				permutationsOfAString.gcd(10, 15);
-		System.out.println(" gcd of numbers is "+gcdOfNumbers);
+		int[] threeSumTest = new int[] {-2,0,0,2,2};
+		threeSum(threeSumTest).forEach(element->System.out.println(" element "+element));
 		
-		List<String> allPermutations =
-				permutationsOfAString.getAllPermutationsOf(input, "", 
-						input, new ArrayList<String>());
-		allPermutations.forEach(element->System.out.println(element));
-//		if(allPermutations!=null && allPermutations.size()>0) {
-//			allPermutations.forEach(element->System.out.println(element+" "));
-//		}
-		
-		String reverseString = permutationsOfAString.getReverseOfAString(input);
-		System.out.println(" The Reverse of a String is "+ reverseString);
-		
-		String reverseUsingCharArray =
-				permutationsOfAString.reverseArrayUsingCharArray(input);
-		System.out.println(" The Reverse of the String using Char Array is "
-				+ reverseUsingCharArray);
-		
-		String binaryNumber =
-				permutationsOfAString.convertDecimalToBinary(15);
-		System.out.println(" The Binary Represenation "
-				+ "of the Decimal Number "+15 +" is "+binaryNumber);
-		
-		String compressedString  =
-				permutationsOfAString.compressString("hello");
-		System.out.println(" The compressed String  "+compressedString);
-		
-		int[] inputArray = new int[] {1,4,4,3,2};
-		permutationsOfAString.printRepeatingElements(inputArray);
+//		int gcdOfNumbers =
+//				permutationsOfAString.gcd(10, 15);
+//		System.out.println(" gcd of numbers is "+gcdOfNumbers);
+//		
+//		List<String> allPermutations =
+//				permutationsOfAString.getAllPermutationsOf(input, "", 
+//						input, new ArrayList<String>());
+//		allPermutations.forEach(element->System.out.println(element));
+////		if(allPermutations!=null && allPermutations.size()>0) {
+////			allPermutations.forEach(element->System.out.println(element+" "));
+////		}
+//		
+//		String reverseString = permutationsOfAString.getReverseOfAString(input);
+//		System.out.println(" The Reverse of a String is "+ reverseString);
+//		
+//		String reverseUsingCharArray =
+//				permutationsOfAString.reverseArrayUsingCharArray(input);
+//		System.out.println(" The Reverse of the String using Char Array is "
+//				+ reverseUsingCharArray);
+//		
+//		String binaryNumber =
+//				permutationsOfAString.convertDecimalToBinary(15);
+//		System.out.println(" The Binary Represenation "
+//				+ "of the Decimal Number "+15 +" is "+binaryNumber);
+//		
+//		String compressedString  =
+//				permutationsOfAString.compressString("hello");
+//		System.out.println(" The compressed String  "+compressedString);
+//		
+//		int[] inputArray = new int[] {1,4,4,3,2};
+//		permutationsOfAString.printRepeatingElements(inputArray);
 	}
 	
 }

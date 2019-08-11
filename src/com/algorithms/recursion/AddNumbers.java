@@ -3,6 +3,8 @@
  */
 package com.algorithms.recursion;
 
+import java.util.concurrent.Semaphore;
+
 /**
  * @author kkanaparthi
  *
@@ -54,8 +56,22 @@ public class AddNumbers {
 		tree.inOrder(node);	
 		boolean isBalanced = isBalanced(node);
 		System.out.println(" Is Balanced Tree is "+isBalanced);
+		ShredPrinter printer = new ShredPrinter();
+		PrintOdd odd = new PrintOdd(printer,10);
+		PrintEven even = new PrintEven(printer,10);
+
+		Thread t1 = new Thread(odd);
+		Thread t2 = new Thread(even);
+
+		t1.start();
+		t2.start();
+
 }
 	
+	
+	
+	/**
+	*/
 	private static boolean isBalanced(TreeNode root) {
 		if(root==null) {
 			return true;
@@ -64,7 +80,11 @@ public class AddNumbers {
 		isBalanced(root.left) && isBalanced(root.right);
 	}
 	
-
+	
+	
+	/*
+	 * 
+	 */
 	private static int addNumbers(int n) {
 		if(n==0) {
 			return 0;
@@ -86,6 +106,78 @@ public class AddNumbers {
 	}
 	
 }
+
+
+/**
+ * 
+ * @author kkanaparthi
+ *
+ */
+class ShredPrinter {
+	private Semaphore semEven = new Semaphore(0);
+	private Semaphore semOdd = new Semaphore(1);
+
+	public void printOdd(int num) {
+		try {
+			semOdd.acquire();
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+		System.out.println(" "+
+				Thread.currentThread().getName()+" "+num);
+		semEven.release();
+	}
+	
+	public void printEven(int num) {
+		try {
+			semEven.acquire();
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+		System.out.println(" "+
+				Thread.currentThread().getName()+" "+num);
+		semOdd.release();
+	}
+}
+
+
+/**
+ */
+class PrintEven implements Runnable {
+	
+	private ShredPrinter number;
+	private int max ;
+
+	PrintEven(ShredPrinter number,int max) {
+		this.number = number;
+		this.max = max;
+	}
+	@Override
+	public void run() {
+		for(int i=2;i<=max;i=i+2) {
+			number.printEven(i);
+		}
+	}
+}
+
+class PrintOdd implements Runnable {
+	
+	private ShredPrinter number;
+	private int max ;
+
+	PrintOdd(ShredPrinter number,int max) {
+		this.number = number;
+		this.max = max;
+	}
+	
+	@Override
+	public void run() {
+		for(int i=1;i<=max;i=i+2) {
+			number.printOdd(i);
+		}
+	}
+}
+
 
 class TreeNode {
 	public TreeNode(int data) {

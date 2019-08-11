@@ -3,6 +3,9 @@
  */
 package com.alogorithms.dp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author kkanaparthi
  * 
@@ -27,7 +30,7 @@ package com.alogorithms.dp;
  * 3. Down -> Right -> Right
  * 
  * We will some obstacles along the path, when there is an obstacle there is no path through that path, 
- * and also mark the adjascent nodes also as zero as there is no path possible once there is an obstacle.
+ * and also mark the adjacent nodes also as zero as there is no path possible once there is an obstacle.
  * 
  */
 public class UniquePaths {
@@ -38,6 +41,8 @@ public class UniquePaths {
 	public static void main(String[] args) {
 		int totalPaths = getTotalPaths(2,2);
 		System.out.println(" Total Paths are  "+totalPaths);
+		getAllPermutations("abcd").forEach
+					(element->System.out.println(element));
 	}
 
 	/**
@@ -61,5 +66,26 @@ public class UniquePaths {
 			}
 		}
 		return paths[m-1][n-1];
+	}
+	
+	private static final List<String> getAllPermutations(String input) {
+		List<String> results = new ArrayList<>();
+		if(input!=null && input.length()==0) {
+			return null;
+		}
+		getAllPermutationsHelper(results,"",input);
+		return results;
+	}
+	
+	private static final void getAllPermutationsHelper
+		(List<String> results,String prefix,String suffix) {
+		if(suffix!=null&&suffix.length()==0) {
+			results.add(prefix+suffix);
+			return;
+		}
+		for(int i=0;i<suffix.length();i++) {
+			String element = suffix.substring(0, i)+suffix.substring(i+1);
+			getAllPermutationsHelper(results, prefix+suffix.charAt(i), element);
+		}
 	}
 }

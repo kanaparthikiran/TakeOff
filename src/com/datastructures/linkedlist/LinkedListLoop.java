@@ -3,7 +3,7 @@
  */
 package com.datastructures.linkedlist;
 
-import org.apache.batik.apps.svgbrowser.JSVGViewerFrame.PreviousTransformAction;
+import java.util.Stack;
 
 /**
  * @author kkanaparthi
@@ -19,13 +19,39 @@ public class LinkedListLoop {
 		lLLlist.addNode(1);
 		lLLlist.addNode(2);
 		lLLlist.addNode(3);
+		lLLlist.addNode(1);
+
 		lLLlist.printNodes();
 		
 		lLLlist.reverseListRec();
 		System.out.println("\n List after reversal ");
 		lLLlist.printNodes();
-
+		boolean isLoopInLinkedList = 
+				lLLlist.isLoopInLinkedList();
+		System.out.println(" Is the Loop in LinkedList  "
+				+ ""+isLoopInLinkedList);
 	}
+	
+    public boolean isPalindrome(LLLNode head) {
+        if(head==null) {
+            return true;
+        }
+        Stack<Integer> elements = new Stack<>();
+        LLLNode currentNode = head;
+        while(currentNode!=null) {
+            elements.push(currentNode.data);
+            currentNode = currentNode.next;
+        }
+        while(currentNode!=null && !elements.isEmpty()) {
+            System.out.println(" elements.pop().intValue() "+
+                elements.pop().intValue()+" currentNode.val "+currentNode.data);
+            if(elements.pop().intValue()!=currentNode.data) {
+                return false;
+            }
+            currentNode = currentNode.next;
+        }
+        return true;
+    }
 }
 
 
@@ -70,6 +96,19 @@ class LLList {
 	
 	public void reverseListRec() {
 		reverseListRec(head);
+	}
+	
+	
+	public boolean isLoopInLinkedList() {
+		LLLNode currentNode = head.next;
+//		LLLNode fastPointer = head;
+		while(currentNode!=null&&currentNode!=head) {
+			currentNode = currentNode.next;
+		}
+		if(currentNode==head) {
+			return true;
+		}
+		return false;
 	}
 	
 	public void reverseListRec(LLLNode current) {

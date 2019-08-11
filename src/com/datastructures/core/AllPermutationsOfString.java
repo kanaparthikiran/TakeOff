@@ -3,6 +3,9 @@
  */
 package com.datastructures.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author kkanaparthi
  *
@@ -51,5 +54,22 @@ public class AllPermutationsOfString {
 			            		+ str.substring(i+1, n));
 			    }
 			}
+			
+			private static void permutations(String input) {
+				List<String> results = new ArrayList<>();
+				String prefix = "";
+				String suffix = input;
+				permutationsHelper(input,results,prefix,suffix);
+			}
+			
+			private static void permutationsHelper(String input,List<String> results,
+					String prefix,String suffix) {
+				if(prefix.length()==input.length()) {
+					results.add(prefix);
+					return;
+				}
+				permutationsHelper(input, results, prefix, suffix);
+				
+ 			}
 }
 

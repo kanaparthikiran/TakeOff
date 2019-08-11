@@ -302,6 +302,22 @@ public class LinkedList {
 		
 	}
 	
+	
+	private Node deleteNodeTest(int data) {
+		Node currentNode = headNode;
+		if(currentNode.data==data) {
+			 currentNode = currentNode.nextNode;
+			 return currentNode;
+		} else {
+			while(currentNode!=null && currentNode.nextNode!=null) {
+				if(currentNode.nextNode.data==data) {
+					currentNode.nextNode = currentNode.nextNode.nextNode;
+				}
+				currentNode = currentNode.nextNode;
+			}
+		}
+		return currentNode;
+	}
 	/**
 	 *  This method deletes the Node with the given Data
 	 *  
@@ -369,11 +385,11 @@ public class LinkedList {
 	 */
 	public static void main(String a[]) {
 		LinkedList linkedList = new LinkedList();
-		linkedList.appendNode(1);
-		linkedList.appendNode(1);
-		linkedList.appendNode(1);
-		linkedList.appendNode(1);
-		linkedList.appendNode(1);
+//		linkedList.appendNode(1);
+//		linkedList.appendNode(1);
+//		linkedList.appendNode(1);
+//		linkedList.appendNode(1);
+//		linkedList.appendNode(1);
 		linkedList.appendNode(2);
 		linkedList.appendNode(3);
 		linkedList.appendNode(4);
@@ -385,13 +401,19 @@ public class LinkedList {
 
 		linkedList.printNodes();
 		
+		
+		linkedList.deleteNodeTest(3);
 		System.out.println("\n ****  After Removing the Elements from the LinkedList *******");
+
+		
+		linkedList.printNodes();
+
 		
 	//	linkedList.deleteNode(6);
 		
 	//	linkedList.prependNode(1);
 		
-		linkedList.printNodes();
+//		linkedList.printNodes();
 		System.out.println("**** Print of Current Nodes is Completed*****");
 //		int indexOfTheElement = linkedList.findNodeLocation(20);
 //		

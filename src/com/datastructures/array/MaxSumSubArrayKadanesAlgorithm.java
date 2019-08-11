@@ -71,6 +71,7 @@ public class MaxSumSubArrayKadanesAlgorithm {
 		int[] max = new int[]{-2,-3,4,-1,-2,1,5,3,10};
 		int maxSum = maxSumSubArrayKadanesAlgorithm.maxSum(max);
 		System.out.println(" maxSum "+ maxSum);
+		//Math.max(a, b);
 		Queue<Integer> input = new LinkedList<>();
 		input.add(1);
 		input.add(2);

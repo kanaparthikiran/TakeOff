@@ -33,9 +33,9 @@ public class MergeTwoSortedLinkedLists {
 		LNode m2 = new LNode(2);
 		LNode m4= new LNode(4);
 		LNode m6 = new LNode(6);
-		m2.next = m4;
-		m4.next = m6;
-		LNode mergedListNode = mergeLists(m1, m2);
+		m2.next = m6;
+		m6.next = m4;
+		LNode mergedListNode = mergeTwoLists(m1, m2);
 		
 		System.out.println("\n After Merge"
 				+ " ");
@@ -46,28 +46,83 @@ public class MergeTwoSortedLinkedLists {
 	}
 
 	
-	private static LNode mergeLists(LNode l1,LNode l2) {
-		LNode dummyNode = new LNode(0);
-		LNode l3 = dummyNode;
-		while(l1!=null && l2!=null) {
-			if(l1.data<=l2.data) {
-				l3.next = l1;
-				l1 = l1.next;
-			} else {
-				l3.next = l2;
-				l2 = l2.next;
+	private static LNode mergeTwoLists(LNode node1, LNode node2) {
+		if(node1==null && node2==null) {
+			return null;
+		}
+		if(node2==null) {
+			return node1;
+		}
+		if(node1==null) {
+			return node2;
+		}
+		LNode dummy = new LNode(0);
+		LNode current = dummy;
+		LNode firstPointer = node1;
+		LNode secondPointer = node2;
+		int prevFirst = 0;
+		int prevSecond = 0;
+
+		
+		while(firstPointer!=null&& secondPointer!=null) {
+			
+			System.out.println(" prevFirst "+prevFirst+" prevSecond "+ prevSecond
+					+" firstPointer.data "+firstPointer.data
+					+" secondPointer.data "+secondPointer.data);
+			if((prevFirst>firstPointer.data) || (prevSecond>secondPointer.data)) {
+				throw new RuntimeException("Exception out of order elements");
 			}
-			l3 = l3.next;
+			if(firstPointer.data<=secondPointer.data) {
+				prevFirst = firstPointer.data;
+				current.next =  firstPointer;
+				firstPointer = firstPointer.next;
+			} else {
+				prevSecond = secondPointer.data;
+				current.next =  secondPointer;
+				secondPointer = secondPointer.next;
+			}
+			current = current.next;
 		}
 		
-		if(l1!=null) {
-			l3.next = l1;
+		
+		System.out.println("Outside node1 "+node1.data+" node 2 data "+node2.data);
+
+		 
+
+		if(firstPointer!=null) {
+			System.out.println(" node1 "+firstPointer.data);
+			current.next = firstPointer;
 		}
-		if(l2!=null) {
-			l3.next = l2;
+		if(secondPointer!=null) {
+			System.out.println(" node2 data  "+secondPointer.data);
+
+			current.next = secondPointer;
 		}
-		return dummyNode.next;
+		return dummy.next;
 	}
+	
+//	private static LNode mergeLists(LNode l1,LNode l2) {
+//		LNode dummyNode = new LNode(0);
+//		LNode l3 = dummyNode;
+//		while(l1!=null && l2!=null) {
+//			if(l1.data<=l2.data) {
+//				l3.next = l1;
+//				l1 = l1.next;
+//			} else {
+//				l3.next = l2;
+//				l2 = l2.next;
+//			}
+//			l3 = l3.next;
+//		}
+//		
+//		if(l1!=null) {
+//			l3.next = l1;
+//		}
+//		if(l2!=null) {
+//			l3.next = l2;
+//		}
+//		return dummyNode.next;
+//	}
 }
 
 class LList {

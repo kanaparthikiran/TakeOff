@@ -57,18 +57,16 @@ public class Test {
 //	        String key = entry.getKey();
 //	        Object value = entry.getValue();
 	        //if (value instanceof List) {
-	             System.out.println(value);
+	       //      System.out.println(value);
 	        //} else  {
 	        	//if (value instanceof List) {
 	         //   Map<String, Object> subMap = (List<String, Object>)value;
-	            hashMapper(subMap);
+	           // hashMapper(subMap);
 	        }
 //	        else {
 //	             throw new IllegalArgumentException(String.valueOf(value));
 //	        }
 
 	    }
-	}
 	
-
 }

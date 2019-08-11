@@ -14,16 +14,32 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
+ * 
  * @author kkanaparthi
  *
  */
 public class FactorialTrailingZeros {
 
+	private static int[][] convertListToMatrix(List<List<Integer>> after) {
+		int[][] response = null;
+		int [][] afterMatrix = new int[after.size()][after.get(0).size()];
+   	    int[][] beforeMatrix = new int[after.size()][after.get(0).size()];
+		    
+   	    for(List<Integer> outer : after) {
+	        for(int j=0;j<outer.size();j++) {
+	            afterMatrix[outer.get(j)][j] = 0;
+	        }
+   	    }
+		return response;
+	}
 	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		List<List<Integer>> elements = new ArrayList();
+//		elements.add(e)
+		//convertListToMatrix(after);
 //		System.out.println("  "+ squareNumber(100));
 //		Stack<Integer> stack = new Stack<>();
 //		stack.push(1);
@@ -54,13 +70,13 @@ public class FactorialTrailingZeros {
 //		
 //		printAllFibo(40);
 		
-		Stack<String> elements = new Stack<>();
-		elements.push("a");
-		elements.push("b");
-		elements.push("c");
-		System.out.println("Stack elements before reversal "+elements);
-		reverseStack(elements);
-		System.out.println("Stack elements after reversal "+elements);
+		Stack<String> elementsA = new Stack<>();
+		elementsA.push("a");
+		elementsA.push("b");
+		elementsA.push("c");
+		System.out.println("Stack elements before reversal "+elementsA);
+		reverseStack(elementsA);
+		System.out.println("Stack elements after reversal "+elementsA);
 
 		Queue<Integer> queue = new LinkedList<>();
 		queue.add(1);

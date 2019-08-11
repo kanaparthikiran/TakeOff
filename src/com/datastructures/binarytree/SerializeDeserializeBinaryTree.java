@@ -3,6 +3,10 @@
  */
 package com.datastructures.binarytree;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.util.List;
+
 /**
  * @author kkanaparthi
  *
@@ -34,6 +38,22 @@ public class SerializeDeserializeBinaryTree {
 		System.out.println(" Serialized "+serialized);
 		Node nodeDeserialized = deserialize(serialized);
 		System.out.println(" DeSerialized "+serialize(nodeDeserialized));
+		printAllFiles("/Users/kkanaparthi/Desktop",new File("/Users/kkanaparthi/Desktop"));
+	}
+	
+	
+	private static void printAllFiles(String filePath,File folder) {
+		if(filePath==null) {
+			return;
+		}
+		File[] files = folder.listFiles();
+		for(File element : files) {
+			if(element.isDirectory()) {
+				printAllFiles(filePath,element);
+			} else {
+				System.out.println(" FileName "+ element.getName());
+			}
+		}
 	}
 	
 	
