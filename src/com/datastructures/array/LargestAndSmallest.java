@@ -4,6 +4,7 @@
 package com.datastructures.array;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 /**
  * @author kkanaparthi
@@ -33,8 +34,33 @@ public class LargestAndSmallest {
 //				findLargestAndSmallest(new int[]{2,5,6,1,7,10,-1});
 
 		Arrays.stream(getLargestSecond(new int[]{2,5,6,1,7,10,-1})).forEach(System.out::println);
+		int element = kthLargestElement(new int[]{1,2,3,4,5,6,7},2);
+		System.out.println(" Kth largest element  is "+element);
 	}
 
+	
+	private  static int kthLargestElement(int[] nums, int k) {
+	    if(k<0) {
+	        return -1;
+	    }
+	    PriorityQueue<Integer> queue = new PriorityQueue<>();
+	    for(int element : nums) {
+	        queue.add(element);
+	    }
+	     int count = 1;
+	     int target = queue.size()-k;
+	     System.out.println(" target "+target);
+	    while(!queue.isEmpty() && count<=target) {
+	        queue.remove();   
+	        count++;
+	    }
+	    if(!queue.isEmpty()) {
+	        return queue.poll();
+	    } else {
+	        return -1;
+	    }
+	}
+	
 	
 	private static int[] getLargestSecond(int[] data) {
 		int[] results = new int[2];

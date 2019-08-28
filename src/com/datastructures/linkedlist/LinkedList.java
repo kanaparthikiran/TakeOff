@@ -1,7 +1,9 @@
 package com.datastructures.linkedlist;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -441,8 +443,61 @@ public class LinkedList {
 		
 		linkedList.printNodes();
 		
+		
+		  int[] squares = { 4, 25, 9, 36, 49 };
+
+		    System.out.println("int[] array before sorting : "
+		        + Arrays.toString(squares));
+		    System.out.println("sorting array in ascending order");
+
+		    Arrays.sort(squares);
+		    int[] afterRev = revArray(squares);
+		    System.out.println("int[] array After sorting : "
+			        + Arrays.toString(afterRev));
+		    int ways = coinChange(new int[] {186,419,83,408}, 6249);
+		    System.out.println(" Number of Ways to make change "+ways);
 	}
+	
+	private static int[] revArray(int[] input) {
+		for(int i=0;i<input.length/2;i++) {
+			int temp = input[i];
+			input[i] = input[input.length-i-1];
+			input[input.length-i-1] = temp;
+		}
+		return input;
+	}
+	
+	 public static int coinChange(int[] coins, int amount) {
+	      if(coins == null || coins.length ==0 ) {
+	          return 0;
+	      }
+	      int ways = 0;
+	      Arrays.sort(coins);
+	      int total = 0;
+	      revArray(coins);
+	      for(int coin : coins) {
+	          while(true) {
+	              total += coin;
+	              if(total>amount) {
+	                  total -= coin;
+	                  break;
+	              } else {
+	                  ways++;
+	              }
+	          }
+	      }
+	      if(total<amount) {
+	          ways = -1;
+	      }
+	    return ways;
+	    }
 
 }
 
 
+class RevSort implements Comparator<Integer> {
+	@Override
+	public int compare(Integer i1, Integer i2) {
+		return i2-i1;
+	}
+}

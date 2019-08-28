@@ -54,22 +54,36 @@ public class PermutationsOfAString {
 		return allStrings;
 	}
 	
+	
+	private static void genAll(List<String> allPermutations,String prefix,String suffix) {
+		if(suffix.length()==0) {
+			allPermutations.add(prefix+suffix);
+		}
+		for(int i=0;i<suffix.length();i++) {
+			String element = suffix.substring(0,i)+suffix.substring(i+1);
+			genAll(allPermutations, prefix+suffix.charAt(i), element);
+		}
+	}
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		PermutationsOfAString permutationsOfAString  = new PermutationsOfAString();
 		String inputString = "abcd";
-		List<String> allPermutationsOfString = 
-				permutationsOfAString.getPermutationsOfString("", 
-						inputString,new ArrayList<String>());
+//		List<String> allPermutationsOfString = 
+//				permutationsOfAString.getPermutationsOfString("", 
+//						inputString,new ArrayList<String>());
 		System.out.println("Printing all Permutations of the String ");
-		if(!allPermutationsOfString.isEmpty()) {
-			allPermutationsOfString.forEach(element->System.out.println( " " +element));
-			
-		}
-		
-		(permutationsOfAString).getPermutationsOfAString("","abcd",new ArrayList<String>());
+		List<String> results = new ArrayList<String>();
+		genAll(results,"","abcd");
+		results.forEach(element->System.out.println(element));
+//		if(!allPermutationsOfString.isEmpty()) {
+//			allPermutationsOfString.forEach(element->System.out.println( " " +element));
+//			
+//		}
+//		
+//		(permutationsOfAString).getPermutationsOfAString("","abcd",new ArrayList<String>());
 		
 		int [] array = new int[]{1,4,5,6,9,11,12};
 		
