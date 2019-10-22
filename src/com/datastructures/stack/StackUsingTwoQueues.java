@@ -18,16 +18,12 @@ public class StackUsingTwoQueues {
 		stackUsingTwoQueues.push(1);
 		stackUsingTwoQueues.push(2);
 		stackUsingTwoQueues.push(3);
-		
 		int poppedElement = 
 				stackUsingTwoQueues.pop();
 		System.out.println(" poppedElement "+poppedElement);
-
 		int poppedElement2 = 
 				stackUsingTwoQueues.pop();
 		System.out.println(" poppedElement "+poppedElement2);
-		
-		
 		int poppedElement3 = 
 				stackUsingTwoQueues.pop();
 		System.out.println(" poppedElement "+poppedElement3);
@@ -35,20 +31,13 @@ public class StackUsingTwoQueues {
 	}
 }
 
-
-
 class StackUsingQueues {
 	Queue<Integer> q1 = new LinkedList<>();
 	Queue<Integer> q2 = new LinkedList<>();
-	
-	public StackUsingQueues() {
-
-	}
-
+	public StackUsingQueues() {}
 	public void push(int element) {
 		q1.add(element);
 	}
-	
 	public int pop() {
 		if(q2.isEmpty()) {
 			if(!q1.isEmpty()) {
@@ -69,13 +58,10 @@ class StackUsingQueues {
 		}
 		return -1;
 	}
-
 	private void swapQueues() {
 		Queue<Integer> temp  = null;
 		temp = q1;
 		q1 = q2;
 		q2 = temp;
 	}
-	
-	
 }

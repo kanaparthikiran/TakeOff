@@ -21,8 +21,14 @@ public class PrintStackInReverseOrder {
 		stack.push(3);
 		System.out.println(" Stack elements "+stack);
 		printSameOrder(stack);
-		stackSort(stack);
-		System.out.println(" Stack elements after reverse "+stack);
+		//stackSort(stack);
+		sortStackNEW(stack);
+		System.out.println(" Stack elements after Sorting "+stack);
+		
+		reverseStackNew(stack);
+		
+		System.out.println(" Stack elements after Reversing "+stack);
+
 
 
 	}
@@ -46,12 +52,25 @@ public class PrintStackInReverseOrder {
 			sortedInsertAtBot(stack, element);
 			stack.push(poppedElement);	
 		}
-		Math.sqrt(25);
-
 	}
 	
-
-	
+	private static void sortStackNEW(Stack<Integer> stack) {
+		if(stack==null||stack.isEmpty()) {
+			return;
+		}
+		Integer element = stack.pop();
+		sortStackNEW(stack);
+		sortStackInsertNEW(stack,element);
+	}
+	private static void sortStackInsertNEW(Stack<Integer> stack, Integer element) {
+		if(stack.isEmpty() || stack.peek()<element) {
+			stack.push(element);
+			return;
+		}
+		Integer poppedElement = stack.pop();
+		sortStackInsertNEW(stack,element);
+		stack.push(poppedElement);
+	}
 	
 	
 	private static void printSameOrder(Stack<Integer> stack) {
@@ -68,12 +87,30 @@ public class PrintStackInReverseOrder {
 	
 	
 	private static void reverseStack(Stack<Integer> stack) {
-		if(stack.isEmpty()) {
+		if(stack==null || stack.isEmpty()) {
 			return;
 		} else {
 			Integer pop  = stack.pop();
 			reverseStack(stack);
 			insertAtBottom(stack,pop);
+		}
+	}
+	
+	private static void reverseStackNew(Stack<Integer> stack) {
+		if(stack==null || stack.isEmpty()) {
+			return;
+		}
+		Integer element = stack.pop();
+		reverseStackNew(stack);
+		insertElementAtBottomNEW(stack,element);
+	}
+	private static void insertElementAtBottomNEW(Stack<Integer> stack, Integer element) {
+		if(stack.isEmpty()) {
+			stack.push(element);
+		} else {
+			Integer poppedElement = stack.pop();
+			insertElementAtBottomNEW(stack, element);
+			stack.push(poppedElement);
 		}
 	}
 	

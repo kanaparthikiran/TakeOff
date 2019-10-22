@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * 
@@ -32,8 +33,36 @@ public class Twosum {
 		System.out.println(" Arrays To String "+ Arrays.toString(results));
 		
 		int[] input = new int[] {6,3,-1,-3,4,-2,2,4,6,12,-7};
+		String paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.";
+		String response = mostCommonWord(paragraph, new String[] {"hit"});
+		System.out.println(" The response is "+response);
 	}
 
+	
+
+	 public static String mostCommonWord(String paragraph, String[] banned) {
+	        if(paragraph==null || paragraph.trim().length()==0) {
+	            return null;
+	        }
+	        List<String> bannedWordsList = Arrays.asList(banned);
+	        Map<String,Integer> wordCounter = new HashMap<>();
+	        String[] paraElements = paragraph.split("\\s*(\\s|=>|,)\\s*");
+	        for(String word : paraElements) {
+	            if(!bannedWordsList.contains(word)) {
+		               wordCounter.put(word.toLowerCase(),wordCounter.getOrDefault(word,0)+1);
+	            } 
+	        }
+	        int maxCount = Integer.MIN_VALUE;
+	        Entry<String,Integer> entryMax = null;
+	        for(Entry<String,Integer> entry: wordCounter.entrySet()) {
+	            if(wordCounter.get(entry.getKey())>maxCount) {
+	                maxCount = wordCounter.get(entry.getKey());
+	                entryMax = entry;
+	            }
+	        }
+	        return entryMax.getKey();
+	    }
+    
 	
 	private static List<Pair> findSubArrays(int[] input) {
 		if(input==null || input.length==0) {

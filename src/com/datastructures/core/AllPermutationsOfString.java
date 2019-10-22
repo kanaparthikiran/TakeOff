@@ -55,21 +55,21 @@ public class AllPermutationsOfString {
 			    }
 			}
 			
-			private static void permutations(String input) {
-				List<String> results = new ArrayList<>();
-				String prefix = "";
-				String suffix = input;
-				permutationsHelper(input,results,prefix,suffix);
-			}
-			
-			private static void permutationsHelper(String input,List<String> results,
-					String prefix,String suffix) {
-				if(prefix.length()==input.length()) {
-					results.add(prefix);
-					return;
-				}
-				permutationsHelper(input, results, prefix, suffix);
-				
- 			}
+//			private static void permutations(String input) {
+//				List<String> results = new ArrayList<>();
+//				String prefix = "";
+//				String suffix = input;
+//				permutationsHelper(input,results,prefix,suffix);
+//			}
+//			
+//			private static void permutationsHelper(String input,List<String> results,
+//					String prefix,String suffix) {
+//				if(prefix.length()==input.length()) {
+//					results.add(prefix);
+//					return;
+//				}
+//				permutationsHelper(input, results, prefix, suffix);
+//				
+// 			}
 }
 

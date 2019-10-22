@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -226,13 +227,51 @@ public class Solution {
 	        return -1;
 	        
     }
+	    public static int twoSumLessThanK(int[] A, int K) {
+	        if(A==null || A.length==0) {
+	            return -1;
+	        }
+	        if(A.length==1) {
+	            return -1;
+	        }
+	        Arrays.sort(A);
+	        System.out.println(" The Array after sorting is "+Arrays.toString(A));
+	        int i = 0;
+	        int j = A.length-1;
+	        int maxSum = -1;
+	        while(i <= j) {
+	           if(A[i]+A[j]<K) {
+	        	   System.out.println(" A[i] "+A[i]+" A[j] "+A[j]+" Sum "+ (A[i]+A[j]));
+	               maxSum = Math.max(maxSum,A[i]+A[j]);
+	               i++;
+	           } else {
+	               j--;
+	           }
+	        }
+	        return maxSum;
+	    }
+	    
+	    private static boolean higherVersion(String ver1, String ver2) {
+	        if(ver1==null || ver2==null || ver1.trim().length()==0 || ver2.trim().length()==0) {
+	            return false;
+	        }
+	        return Integer.parseInt(ver1.replaceAll(".|",""))>Integer.parseInt((ver2.replaceAll(".|","")));
+	    }
 	    
 	 	public static void main(String args[]) throws Exception {
 	 		String[] data = new String[] {"aa","a"};
 	 		Map<String,String> map = new HashMap<>();
 	 		boolean isPalindrome = isPalindrome("OP");
 	 		System.out.println(" IS Palindrome "+isPalindrome);
-//	 		
+	 		
+	 		boolean isHigher =  higherVersion("1.0.0","1.0.1");
+	 		System.out.println(" Is Higher version is "+isHigher);
+	 		int result =
+	 				twoSumLessThanK(new int[] {358,898,450,732,672,672,256,542,320,573,423,543,591,280,399,923,920,254,135,952,115,536,143,896,411,722,815,635,353,486,127,146,974,495,229,21,733,918,314,670,671,537,533,716,140,599,758,777,185,549}, 1800);
+	 		System.out.println(" The result is "+result);
+//	 		[254,914,110,900,147,441,209,122,571,942,136,350,160,127,178,839,201,386,462,45,735,467,153,415,875,282,204,534,639,994,284,320,865,468,1,838,275,370,295,574,309,268,415,385,786,62,359,78,854,944]
+	 		
+	 		
 //	 		int response = strstr("mississippi", "issip");
 //	 		System.out.println(" str str response is " + response);
 	 		

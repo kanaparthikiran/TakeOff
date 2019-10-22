@@ -79,11 +79,22 @@ public class PermutationsOfAString {
 						element, allPermutations);
 			}
 		}
-	return allPermutations;	
+		return allPermutations;	
 	}
 	
+	private static void getAllPerms(String prefix,String suffix,List<String> results) {
+		if(suffix==null || suffix.length()==0) {
+			results.add(prefix+suffix);
+		} else {
+			for(int i=0;i<suffix.length();i++) {
+				String element = suffix.substring(0,i)+suffix.substring(i+1);
+				getAllPerms(prefix+suffix.charAt(i), element, results);
+			}
+		}
+	}
 	
-	private static List<String> getAllPermutationsOf(String data,String prefix,String suffix,List<String> results) {
+	private static List<String> getAllPermutationsOf
+							(String data,String prefix,String suffix,List<String> results) {
 		if(data!=null) {
 			if(suffix!=null && suffix.length()==0) {
 				results.add(prefix+suffix);
@@ -202,7 +213,9 @@ public class PermutationsOfAString {
 		
 		int[] threeSumTest = new int[] {-2,0,0,2,2};
 		threeSum(threeSumTest).forEach(element->System.out.println(" element "+element));
-		
+		List<String> results = new ArrayList<>();
+		getAllPerms("", "abc", results);
+		results.forEach(element->System.out.println(element));
 //		int gcdOfNumbers =
 //				permutationsOfAString.gcd(10, 15);
 //		System.out.println(" gcd of numbers is "+gcdOfNumbers);

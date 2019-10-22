@@ -1,13 +1,10 @@
 // IMPORT LIBRARY PACKAGES NEEDED BY YOUR PROGRAM
 // SOME CLASSES WITHIN A PACKAGE MAY BE RESTRICTED
 // DEFINE ANY CLASS AND METHOD NEEDED
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Set;
 
 public class ShortestPathBFS {        
     int minimumDistance(int numRows, int numColumns, List<List<Integer>> area) {
@@ -33,6 +30,15 @@ public class ShortestPathBFS {
 		return areaMatrix;
 	}
 
+	
+	boolean higherVersion(String ver1, String ver2) {
+	    if(ver1==null || ver2==null || ver1.trim().length()==0 || ver2.trim().length()==0) {
+	        return false;
+	    }
+	    return Integer.parseInt(ver1.replaceAll(".",""))>Integer.parseInt((ver2.replaceAll(".","")));
+	}
+
+    
 	/**
 	 * 
 	 * @param arr

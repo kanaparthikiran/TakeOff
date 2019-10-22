@@ -65,6 +65,16 @@ public class PermutationsOfAString {
 		}
 	}
 	
+	private static void pAll(List<String> list,String prefix,String suffix) {
+		if(suffix.length()==0) {
+			list.add(prefix+suffix);
+		}	
+		for(int i=0;i<suffix.length();i++) {
+			String element = suffix.substring(0,i)+suffix.substring(i+1);
+			pAll(list,prefix+suffix.charAt(i),element);
+		}
+	}
+	
 	/**
 	 * @param args
 	 */
@@ -76,7 +86,8 @@ public class PermutationsOfAString {
 //						inputString,new ArrayList<String>());
 		System.out.println("Printing all Permutations of the String ");
 		List<String> results = new ArrayList<String>();
-		genAll(results,"","abcd");
+		//genAll(results,"","abcd");
+		pAll(results,"","abc");
 		results.forEach(element->System.out.println(element));
 //		if(!allPermutationsOfString.isEmpty()) {
 //			allPermutationsOfString.forEach(element->System.out.println( " " +element));

@@ -3,6 +3,8 @@
  */
 package com.datastructures.core;
 
+import java.util.Arrays;
+
 /**
  * @author kkanaparthi
  *
@@ -22,7 +24,6 @@ public class LinkedList{
 	 }  
 	  
 	 public void addToTheLast(Node node) {  
-	  
 	  if (head == null) {  
 	   head = node;  
 	  } else {  
@@ -62,21 +63,74 @@ public class LinkedList{
 	  return previousNode;  
 	 }  
 	  
+	private static boolean isPalindrome(Node l) {
+		 if(l==null || l.next==null) {
+		        return true;
+		    }
+		    boolean isPalindrome = true;
+		    Node slowPointer = l;
+		    Node fastPointer = l;
+		    while(fastPointer!=null && fastPointer.next!=null) {
+		        fastPointer = fastPointer.next.next;
+		        slowPointer = slowPointer.next;
+		    }
+
+		    slowPointer = reverseTest(slowPointer);
+		    fastPointer = l;
+		    while(slowPointer!=null) {
+		     if(slowPointer.value!=fastPointer.value) {
+		         return false;
+		     }
+		     slowPointer = slowPointer.next;
+		     fastPointer = fastPointer.next; 
+		    }
+		    return isPalindrome;
+	}
+	
+	private static Node reverseTest(Node head) {
+		Node prev = null;
+		Node next = null;
+		Node currentNode = head;
+	    while(currentNode!=null) {
+	        next = currentNode.next;
+	        currentNode.next = prev;
+	        prev = currentNode;
+	        currentNode = next;
+	    }
+	    return prev;
+	}
+	
+	private static int[] rotateArray(int[] A, int K) {
+	    for(int i=0;i<K;i++) {
+	        int temp = A[A.length-1];
+	        for(int j=A.length-1;j>0;j--) {
+	             A[j] = A[j-1];  
+	        }
+	        A[0] = temp;
+	    }
+	    return A;
+		}	
+
+
+	
 	 public static void main(String[] args) {  
 	  LinkedList list = new LinkedList();  
+	  int[] response  = list.rotateArray(new int[] {3, 8, 9, 7, 6}, 1);
+	  System.out.println(" Array Response is "+ Arrays.toString(response));
 	  // Creating a linked list  
-	  Node head=new Node(5);  
-		  list.addToTheLast(head);  
-		  list.addToTheLast(new Node(6));  
-		  list.addToTheLast(new Node(7));  
-		  list.addToTheLast(new Node(1));  
-		  list.addToTheLast(new Node(2));  
-	   
+	  Node head=new Node(1);  
+	  list.addToTheLast(head);  
+	  list.addToTheLast(new Node(1000000000));  
+	  list.addToTheLast(new Node(-1000000000));  
+	  list.addToTheLast(new Node(-1000000000));  
+	  list.addToTheLast(new Node(1000000000));  
+	   list.addToTheLast(new Node(1));
 	  list.printList(head);  
+	  System.out.println(" Is Palindrome response "+ list.isPalindrome(head));
 	  //Reversing LinkedList  
-	  Node reverseHead=reverseLinkedList(head);  
-	  System.out.println("After reversing");  
-	  list.printList(reverseHead);  
+//	  Node reverseHead=reverseLinkedList(head);  
+//	  System.out.println("After reversing");  
+//	  list.printList(reverseHead);  
 	   
 	 }  
 	  
